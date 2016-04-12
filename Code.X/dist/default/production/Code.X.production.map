@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.36\dat\en_msgs.txt -cs \
   -h+dist/default/production\Code.X.production.sym \
   --cmf=dist/default/production\Code.X.production.cmf -z -Q18F2550 \
-  -oC:\Users\JUANJA~1\AppData\Local\Temp\s10o.2 \
+  -oC:\Users\JUANJA~1\AppData\Local\Temp\s6p8.2 \
   -Mdist/default/production/Code.X.production.map -E1 -ver=XC8 \
   -ASTACK=0B2h-07ffh -pstack=STACK -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
   -ASMALLCONST=0800h-08FFhx120 -AMEDIUMCONST=0800h-07FFFh -ACOMRAM=01h-05Fh \
@@ -22,7 +22,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\JUANJA~1\AppData\Local\Temp\s10o.obj \
+  C:\Users\JUANJA~1\AppData\Local\Temp\s6p8.obj \
   dist/default/production\Code.X.production.obj 
 
 Object code version is 3.11
@@ -35,7 +35,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\JUANJA~1\AppData\Local\Temp\s10o.obj
+C:\Users\JUANJA~1\AppData\Local\Temp\s6p8.obj
                 end_init                             16       16        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
