@@ -23,6 +23,7 @@ void FirstStateRequest(void){
     //Enable CCP1 Interrupt
     CCP1IE=ON;
     //Activate CCP1 as 1000 condition
+    //Start Pin on LOW and on Capture, toggle the pin
     CCP1CON=0x08;
     //Configure compare to 18000 counts (18ms)
     TMR1H=0;
@@ -52,9 +53,10 @@ void DHTSignalResponse(void){
     T1CON--;
     TMR1H=0;
     TMR1L=0;
+    CCPR1=0;
     T1CON++;
     
-    lasttime=TMR1;
+    lasttime=CCPR1;
     
     state=_RecievingData;
     

@@ -20,8 +20,8 @@
 #include "IO_Port.h"
 #include "CCP1.h"
 
-#define Sensorport B
-#define Sensorpin  3
+#define Sensorport C
+#define Sensorpin  2
 
 void Idle(void);
 void FirstStateRequest(void);

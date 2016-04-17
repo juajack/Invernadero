@@ -35,12 +35,12 @@ void interrupt high_priority HighISR (void){
     if(INT2IF){
         INT2IF=0;
         if(Light_f){
-            TurnOffLights();
+            //TurnOffLights();
             INTEDG2=OFF;
             Light_f=0;
         }
         else{
-            TurnOnLights();
+            //TurnOnLights();
             INTEDG2=ON;
             Light_f=1;
         }
@@ -54,7 +54,7 @@ void interrupt high_priority HighISR (void){
     if(TMR0IF){
         //Configurar el TMR0 para interrupcion cada minuto
         TMR0IF=0;
-        if(TimerCounter<5) TimerCounter++;        //Valor Real 239, 
+        if(TimerCounter<2) TimerCounter++;        //Valor Real 239, 
         else{
             TMR0_STATE_OFF;
             DHT_StateMachine[_FirstStateRequest]();
@@ -86,6 +86,8 @@ void main(void) {
     
     InitDHT11Driver();
     
+    TurnOnLights();
+
     
     while(1){
     }
