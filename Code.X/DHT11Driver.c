@@ -29,7 +29,7 @@ void FirstStateRequest(void){
     TMR1H=0;
     TMR1L=0;
     
-    counts=TMR1+65534;
+    counts=TMR1+18000;
     T3CON=0b10100000;
     T1CON=0b11001000;
     //Configure Pin as output

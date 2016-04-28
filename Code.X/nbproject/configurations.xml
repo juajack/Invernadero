@@ -29,6 +29,7 @@
       <itemPath>DHT11Driver.c</itemPath>
       <itemPath>LedDriver.c</itemPath>
       <itemPath>CCP1.c</itemPath>
+      <itemPath>SerialCOM.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -44,7 +45,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC18F4550</targetDevice>
+        <targetDevice>PIC18F2550</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>

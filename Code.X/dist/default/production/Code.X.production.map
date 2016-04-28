@@ -4,10 +4,10 @@ Linker command line:
 
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.36\dat\en_msgs.txt -cs \
   -h+dist/default/production\Code.X.production.sym \
-  --cmf=dist/default/production\Code.X.production.cmf -z -Q18F4550 \
-  -oC:\Users\JUANJA~1\AppData\Local\Temp\s6ag.2 \
+  --cmf=dist/default/production\Code.X.production.cmf -z -Q18F2550 \
+  -oC:\Users\JUANJA~1\AppData\Local\Temp\s31g.2 \
   -Mdist/default/production/Code.X.production.map -E1 -ver=XC8 \
-  -ASTACK=0B8h-07ffh -pstack=STACK -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
+  -ASTACK=0D2h-07ffh -pstack=STACK -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
   -ASMALLCONST=0800h-08FFhx120 -AMEDIUMCONST=0800h-07FFFh -ACOMRAM=01h-05Fh \
   -AABS1=00h-07FFh -ABIGRAM=01h-07FFh -ARAM=060h-0FFh,0100h-01FFhx7 \
   -ABANK0=060h-0FFh -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh \
@@ -22,12 +22,12 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\JUANJA~1\AppData\Local\Temp\s6ag.obj \
+  C:\Users\JUANJA~1\AppData\Local\Temp\s31g.obj \
   dist/default/production\Code.X.production.obj 
 
 Object code version is 3.11
 
-Machine type is 18F4550
+Machine type is 18F2550
 
 Call graph: (short form)
 
@@ -35,53 +35,66 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\JUANJA~1\AppData\Local\Temp\s6ag.obj
+C:\Users\JUANJA~1\AppData\Local\Temp\s31g.obj
                 end_init                             16       16        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
 dist/default/production\Code.X.production.obj
                 intcode                               8        8        E        4       0
-                temp                                 4F       4F        1        1       1
+                temp                                 4C       4C        1        1       1
                 smallconst                          800      800        4      400       0
-                text29                              C48      C48        C      402       0
-                text28                              C9A      C9A        2      402       0
-                text27                              ADE      ADE       34      402       0
-                text26                              BBC      BBC       1A      402       0
-                text25                              9FC      9FC       54      402       0
-                text24                              C88      C88        8      402       0
-                text23                              C80      C80        8      402       0
-                intcode_body                        804      804       F4      402       0
-                text21                              A98      A98       46      402       0
-                text20                              C5E      C5E        A      402       0
-                text19                              C3C      C3C        C      402       0
-                text18                              C22      C22        E      402       0
-                text17                              C54      C54        A      402       0
-                text16                              BF6      BF6       10      402       0
-                text15                              C14      C14        E      402       0
-                text14                              BE6      BE6       10      402       0
-                text13                              C06      C06        E      402       0
-                text12                              C96      C96        4      402       0
-                text11                              B5E      B5E       22      402       0
-                text10                              B80      B80       20      402       0
-                text9                               C78      C78        8      402       0
-                text8                               C70      C70        8      402       0
-                text7                               8F8      8F8       9C      402       0
-                text6                               B38      B38       26      402       0
-                text5                               994      994       68      402       0
-                text4                               C90      C90        6      402       0
-                text3                               BA0      BA0       1C      402       0
-                text2                               C68      C68        8      402       0
-                text1                               C30      C30        C      402       0
-                text0                               B12      B12       26      402       0
-                cstackCOMRAM                         24       24       1A        1       1
-                cstackBANK0                          B0       B0        8       60       1
-                bssBANK0                             60       60       50       60       1
-                dataCOMRAM                           3E       3E       10        1       1
-                bssCOMRAM                             1        1       23        1       1
-                bitbssCOMRAM                        270       4E        3        1       1     8
-                cinit                               A50      A50       48      402       0
-                idataCOMRAM                         BD6      BD6       10      402       0
+                text40                              E50      E50        C      402       0
+                text39                              EE6      EE6        2      402       0
+                text38                              CE8      CE8       34      402       0
+                text37                              D8C      D8C       22      402       0
+                text36                              BD2      BD2       54      402       0
+                text35                              EC2      EC2        8      402       0
+                text34                              EBA      EBA        8      402       0
+                text33                              E98      E98        A      402       0
+                text32                              EDC      EDC        6      402       0
+                text31                              A16      A16       84      402       0
+                text30                              D44      D44       26      402       0
+                text29                              B70      B70       62      402       0
+                text28                              ED6      ED6        6      402       0
+                text27                              DCA      DCA       18      402       0
+                text26                              EB2      EB2        8      402       0
+                text25                              E44      E44        C      402       0
+                intcode_body                        804      804      154      402       0
+                text23                              C6C      C6C       46      402       0
+                text22                              E8E      E8E        A      402       0
+                text21                              E38      E38        C      402       0
+                text20                              E1E      E1E        E      402       0
+                text19                              E84      E84        A      402       0
+                text18                              DF2      DF2       10      402       0
+                text17                              E10      E10        E      402       0
+                text16                              DE2      DE2       10      402       0
+                text15                              E02      E02        E      402       0
+                text14                              EE2      EE2        4      402       0
+                text13                              D6A      D6A       22      402       0
+                text12                              D1C      D1C       28      402       0
+                text11                              E7A      E7A        A      402       0
+                text10                              E70      E70        A      402       0
+                text9                               E66      E66        A      402       0
+                text8                               ED0      ED0        6      402       0
+                text7                               958      958       BE      402       0
+                text6                               CB2      CB2       36      402       0
+                text5                               A9A      A9A       6E      402       0
+                text4                               ECA      ECA        6      402       0
+                text3                               DAE      DAE       1C      402       0
+                text2                               EAA      EAA        8      402       0
+                text1                               E2C      E2C        C      402       0
+                text0                               C26      C26       46      402       0
+                cstackCOMRAM                          1        1       22        1       1
+                cstackBANK0                          B6       B6       12       60       1
+                dataBANK0                            C8       C8        A       60       1
+                bssBANK0                             60       60       56       60       1
+                dataCOMRAM                           43       43        8        1       1
+                bssCOMRAM                            23       23       20        1       1
+                bitbssCOMRAM                        258       4B        6        1       1     8
+                cinit                               B08      B08       68      402       0
+                idataBANK0                          E5C      E5C        A      402       0
+                idataCOMRAM                         EA2      EA2        8      402       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -90,38 +103,50 @@ TOTAL           Name                               Link     Load   Length     Sp
                 end_init                             16       16        4         0
                 intcode                               8        8        E         0
                 reset_vec                             0        0        4         0
-                text29                              C48      C48        C         0
-                text28                              C9A      C9A        2         0
-                text27                              ADE      ADE       34         0
-                text26                              BBC      BBC       1A         0
-                text25                              9FC      9FC       54         0
-                text24                              C88      C88        8         0
-                text23                              C80      C80        8         0
-                intcode_body                        804      804       F4         0
-                text21                              A98      A98       46         0
-                text20                              C5E      C5E        A         0
-                text19                              C3C      C3C        C         0
-                text18                              C22      C22        E         0
-                text17                              C54      C54        A         0
-                text16                              BF6      BF6       10         0
-                text15                              C14      C14        E         0
-                text14                              BE6      BE6       10         0
-                text13                              C06      C06        E         0
-                text12                              C96      C96        4         0
-                text11                              B5E      B5E       22         0
-                text10                              B80      B80       20         0
-                text9                               C78      C78        8         0
-                text8                               C70      C70        8         0
-                text7                               8F8      8F8       9C         0
-                text6                               B38      B38       26         0
-                text5                               994      994       68         0
-                text4                               C90      C90        6         0
-                text3                               BA0      BA0       1C         0
-                text2                               C68      C68        8         0
-                text1                               C30      C30        C         0
-                text0                               B12      B12       26         0
-                cinit                               A50      A50       48         0
-                idataCOMRAM                         BD6      BD6       10         0
+                text40                              E50      E50        C         0
+                text39                              EE6      EE6        2         0
+                text38                              CE8      CE8       34         0
+                text37                              D8C      D8C       22         0
+                text36                              BD2      BD2       54         0
+                text35                              EC2      EC2        8         0
+                text34                              EBA      EBA        8         0
+                text33                              E98      E98        A         0
+                text32                              EDC      EDC        6         0
+                text31                              A16      A16       84         0
+                text30                              D44      D44       26         0
+                text29                              B70      B70       62         0
+                text28                              ED6      ED6        6         0
+                text27                              DCA      DCA       18         0
+                text26                              EB2      EB2        8         0
+                text25                              E44      E44        C         0
+                intcode_body                        804      804      154         0
+                text23                              C6C      C6C       46         0
+                text22                              E8E      E8E        A         0
+                text21                              E38      E38        C         0
+                text20                              E1E      E1E        E         0
+                text19                              E84      E84        A         0
+                text18                              DF2      DF2       10         0
+                text17                              E10      E10        E         0
+                text16                              DE2      DE2       10         0
+                text15                              E02      E02        E         0
+                text14                              EE2      EE2        4         0
+                text13                              D6A      D6A       22         0
+                text12                              D1C      D1C       28         0
+                text11                              E7A      E7A        A         0
+                text10                              E70      E70        A         0
+                text9                               E66      E66        A         0
+                text8                               ED0      ED0        6         0
+                text7                               958      958       BE         0
+                text6                               CB2      CB2       36         0
+                text5                               A9A      A9A       6E         0
+                text4                               ECA      ECA        6         0
+                text3                               DAE      DAE       1C         0
+                text2                               EAA      EAA        8         0
+                text1                               E2C      E2C        C         0
+                text0                               C26      C26       46         0
+                cinit                               B08      B08       68         0
+                idataBANK0                          E5C      E5C        A         0
+                idataCOMRAM                         EA2      EA2        8         0
 
         CLASS   CONST          
 
@@ -131,11 +156,11 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                temp                                 4F       4F        1         1
-                cstackCOMRAM                         24       24       1A         1
-                dataCOMRAM                           3E       3E       10         1
-                bssCOMRAM                             1        1       23         1
-                bitbssCOMRAM                        270       4E        3         1
+                temp                                 4C       4C        1         1
+                cstackCOMRAM                          1        1       22         1
+                dataCOMRAM                           43       43        8         1
+                bssCOMRAM                            23       23       20         1
+                bitbssCOMRAM                        258       4B        6         1
 
         CLASS   ABS1           
 
@@ -144,8 +169,9 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   RAM            
 
         CLASS   BANK0          
-                cstackBANK0                          B0       B0        8         1
-                bssBANK0                             60       60       50         1
+                cstackBANK0                          B6       B6       12         1
+                dataBANK0                            C8       C8        A         1
+                bssBANK0                             60       60       56         1
 
         CLASS   BANK1          
 
@@ -178,11 +204,11 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                bssCOMRAM                      000001  00004F  000050         1       1  COMRAM  
+                cstackCOMRAM                   000001  00004C  00004D         1       1  COMRAM  
                 intcode                        000008  000012  00001A         4       0  CODE    
-                bssBANK0                       000060  000058  0000B8        60       1  BANK0   
+                bssBANK0                       000060  000072  0000D2        60       1  BANK0   
                 smallconst                     000800  000004  000804       400       0  SMALLCON
-                intcode_body                   000804  000498  000C9C       402       0  CODE    
+                intcode_body                   000804  0006E4  000EE8       402       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -190,7 +216,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0000B8-0000FF               48
+        BANK0            0000D2-0000FF               2E
         BANK1            000100-0001FF              100
         BANK2            000200-0002FF              100
         BANK3            000300-0003FF              100
@@ -198,33 +224,40 @@ UNUSED ADDRESS RANGES
         BANK5            000500-0005FF              100
         BANK6            000600-0006FF              100
         BANK7            000700-0007FF              100
-        BIGRAM           000050-00005F               10
-                         0000B8-0007FF              748
+        BIGRAM           00004D-00005F               13
+                         0000D2-0007FF              72E
         CODE             000004-000007                4
                          00001A-0007FF              7E6
-                         000C9C-007FFF             7364
-        COMRAM           000050-00005F               10
+                         000EE8-007FFF             7118
+        COMRAM           00004D-00005F               13
         CONST            000004-000007                4
                          00001A-0007FF              7E6
-                         000C9C-007FFF             7364
+                         000EE8-007FFF             7118
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      000C9C-007FFF             7364
-        RAM              0000B8-0007FF              100
+        MEDIUMCONST      000EE8-007FFF             7118
+        RAM              0000D2-0007FF              100
         SFR              000F60-000FFF               A0
-        SMALLCONST       000C9C-007FFF              100
-        STACK            0000B8-0007FF              748
+        SMALLCONST       000EE8-007FFF              100
+        STACK            0000D2-0007FF              72E
 
                                   Symbol Table
 
-?___awdiv                    cstackCOMRAM 00003A
-?___wmul                     cstackCOMRAM 000034
-SetDutyCycle@dutycycle       cstackBANK0  0000B6
-SetPWM@dutycycle             cstackBANK0  0000B7
-TMR0_INIT@T0PS               cstackCOMRAM 000035
-TMR0_INIT@bits               cstackCOMRAM 000034
-TMR0_WRITE_HIGH@valorHigh    cstackCOMRAM 000034
-TMR0_WRITE_LOW@valorLow      cstackCOMRAM 000034
+?___awdiv                    cstackBANK0  0000BC
+?___wmul                     cstackBANK0  0000B6
+?i2___awdiv                  cstackCOMRAM 000007
+?i2___wmul                   cstackCOMRAM 000001
+SerialCOM@_SPBRG             smallconst   000801
+SetDutyCycle@dutycycle       cstackBANK0  0000C6
+SetPWM@dutycycle             cstackBANK0  0000C7
+TMR0_INIT@T0PS               cstackBANK0  0000B7
+TMR0_INIT@bits               cstackBANK0  0000B6
+TMR0_WRITE_HIGH@valorHigh    cstackBANK0  0000B6
+TMR0_WRITE_LOW@valorLow      cstackBANK0  0000B6
+_ADDEN                       (abs)        007D5B
 _ADIF                        (abs)        007CF6
+_ADRES                       (abs)        000FC3
+_BRG16                       (abs)        007DC3
+_BRGH                        (abs)        007D62
 _CCP1CON                     (abs)        000FBD
 _CCP1IE                      (abs)        007CEA
 _CCP1IF                      (abs)        007CF2
@@ -233,22 +266,24 @@ _CCPR1                       (abs)        000FBE
 _CCPR1H                      (abs)        000FBF
 _CCPR1L                      (abs)        000FBE
 _CCPR2L                      (abs)        000FBB
-_ConfigureTimer1             text21       000A98
-_DHTSignalResponse           text26       000BBC
-_DHT_StateMachine            dataCOMRAM   00003E
-_DecimalHumidity             bssCOMRAM    000011
-_DecimalTemperature          bssCOMRAM    000012
-_Door_f                      bitbssCOMRAM 000270
-_FirstStateRequest           text27       000ADE
+_CREN                        (abs)        007D5C
+_CSRC                        (abs)        007D67
+_ConfigureTimer1             text23       000C6C
+_DHTSignalResponse           text37       000D8C
+_DHT_StateMachine            dataBANK0    0000C8
+_DecimalHumidity             bssCOMRAM    00002F
+_DecimalTemperature          bssCOMRAM    000030
+_Door_f                      bitbssCOMRAM 000258
+_FirstStateRequest           text38       000CE8
 _HighISR                     intcode      000008
-_INIT_INTCON                 text19       000C3C
-_INIT_INTCON2                text18       000C22
-_INIT_INTCON3                text17       000C54
-_INIT_IPR1                   text16       000BF6
-_INIT_IPR2                   text15       000C14
-_INIT_PIE1                   text14       000BE6
-_INIT_PIE2                   text13       000C06
-_INIT_RCON                   text12       000C96
+_INIT_INTCON                 text21       000E38
+_INIT_INTCON2                text20       000E1E
+_INIT_INTCON3                text19       000E84
+_INIT_IPR1                   text18       000DF2
+_INIT_IPR2                   text17       000E10
+_INIT_PIE1                   text16       000DE2
+_INIT_PIE2                   text15       000E02
+_INIT_RCON                   text14       000EE2
 _INT2IF                      (abs)        007F81
 _INTCON2bits                 (abs)        000FF1
 _INTCON3bits                 (abs)        000FF0
@@ -256,29 +291,41 @@ _INTCONbits                  (abs)        000FF2
 _INTEDG2                     (abs)        007F8C
 _IPR1bits                    (abs)        000F9F
 _IPR2bits                    (abs)        000FA2
-_Idle                        text28       000C9A
-_InitDHT11Driver             text20       000C5E
-_IntegerHumidity             bssCOMRAM    000013
-_IntegerTemperature          bssCOMRAM    000014
-_Interrupt_Init              text11       000B5E
+_Idle                        text39       000EE6
+_InitDHT11Driver             text22       000E8E
+_IntegerHumidity             bssCOMRAM    000031
+_IntegerTemperature          bssCOMRAM    000032
+_Interrupt_Init              text13       000D6A
+_LATA0                       (abs)        007C48
 _LATB3                       (abs)        007C53
 _LATC2                       (abs)        007C5A
-_LSb                         bssCOMRAM    000007
-_Light_f                     bitbssCOMRAM 000271
-_MSb                         bssCOMRAM    000009
-_Night_f                     bitbssCOMRAM 000272
+_LSb                         bssCOMRAM    000023
+_LightValue                  bssCOMRAM    000025
+_Light_f                     bitbssCOMRAM 000259
+_MSb                         bssCOMRAM    000027
+_MaxLightValue               dataCOMRAM   000046
+_MinLightValue               dataCOMRAM   000047
+_Night_f                     bitbssCOMRAM 00025A
 _OSCCON                      (abs)        000FD3
 _PIE1bits                    (abs)        000F9D
 _PIE2bits                    (abs)        000FA0
+_PORTAbits                   (abs)        000F80
 _PR2                         (abs)        000FCB
-_PWMValue                    bssCOMRAM    00000B
+_PWMValue                    bssCOMRAM    000029
 _RCONbits                    (abs)        000FD0
-_RecievingData               text25       0009FC
-_SecondStateRequest          text29       000C48
-_SetDutyCycle                text5        000994
-_SetPWM                      text3        000BA0
-_SetPeriod                   text4        000C90
-_StartPWM                    text2        000C68
+_RX9                         (abs)        007D5E
+_RecievingData               text36       000BD2
+_SENDB                       (abs)        007D63
+_SPBRG                       (abs)        000FAF
+_SPEN                        (abs)        007D5F
+_SREN                        (abs)        007D5D
+_SYNC                        (abs)        007D64
+_SecondStateRequest          text40       000E50
+_SetDutyCycle                text5        000A9A
+_SetPWM                      text3        000DAE
+_SetPeriod                   text4        000ECA
+_StartPWM                    text2        000EAA
+_StopPWM                     text9        000E66
 _T0CON                       (abs)        000FD5
 _T0IF                        (abs)        007F92
 _T1CON                       (abs)        000FCD
@@ -292,18 +339,22 @@ _TMR0H                       (abs)        000FD7
 _TMR0IF                      (abs)        007F92
 _TMR0L                       (abs)        000FD6
 _TMR0ON                      (abs)        007EAF
-_TMR0_INIT                   text10       000B80
-_TMR0_WRITE_HIGH             text9        000C78
-_TMR0_WRITE_LOW              text8        000C70
+_TMR0_INIT                   text12       000D1C
+_TMR0_WRITE_HIGH             text11       000E7A
+_TMR0_WRITE_LOW              text10       000E70
 _TMR1                        (abs)        000FCE
 _TMR1CS                      (abs)        007E69
 _TMR1H                       (abs)        000FCF
 _TMR1L                       (abs)        000FCE
 _TMR1ON                      (abs)        007E68
+_TRISAbits                   (abs)        000F92
 _TRISBbits                   (abs)        000F93
 _TRISCbits                   (abs)        000F94
-_TimerCounter                bssCOMRAM    000015
-_TurnOnLights                text1        000C30
+_TX9                         (abs)        007D66
+_TXEN                        (abs)        007D65
+_TimerCounter                bssCOMRAM    000033
+_TurnOffLights               text8        000ED0
+_TurnOnLights                text1        000E2C
 __CFG_BOR$SOFT               (abs)        000000
 __CFG_BORV$3                 (abs)        000000
 __CFG_CCP2MX$OFF             (abs)        000000
@@ -366,6 +417,7 @@ __Hconst                     const        000000
 __HcstackBANK0               cstackBANK0  000000
 __HcstackCOMRAM              cstackCOMRAM 000000
 __Hdata                      data         000000
+__HdataBANK0                 dataBANK0    000000
 __HdataCOMRAM                dataCOMRAM   000000
 __Heeprom_data               eeprom_data  000000
 __Hend_init                  end_init     00001A
@@ -373,6 +425,7 @@ __Hfarbss                    farbss       000000
 __Hfardata                   fardata      000000
 __Hibigdata                  ibigdata     000000
 __Hidata                     idata        000000
+__HidataBANK0                idataBANK0   000000
 __HidataCOMRAM               idataCOMRAM  000000
 __Hidloc                     idloc        200008
 __Hifardata                  ifardata     000000
@@ -400,11 +453,11 @@ __Hrparam                    rparam       000000
 __Hsfr                       sfr          000000
 __Hsmallconst                smallconst   000804
 __Hspace_0                   (abs)        30000E
-__Hspace_1                   (abs)        000273
+__Hspace_1                   (abs)        00025E
 __Hspace_2                   (abs)        000000
 __Hstack                     stack        000000
 __Hstruct                    struct       000000
-__Htemp                      temp         000050
+__Htemp                      temp         00004D
 __Htext                      text         000000
 __Htext0                     text0        000000
 __Htext1                     text1        000000
@@ -421,8 +474,8 @@ __Htext19                    text19       000000
 __Htext2                     text2        000000
 __Htext20                    text20       000000
 __Htext21                    text21       000000
+__Htext22                    text22       000000
 __Htext23                    text23       000000
-__Htext24                    text24       000000
 __Htext25                    text25       000000
 __Htext26                    text26       000000
 __Htext27                    text27       000000
@@ -430,7 +483,18 @@ __Htext28                    text28       000000
 __Htext29                    text29       000000
 __Htext3                     text3        000000
 __Htext30                    text30       000000
+__Htext31                    text31       000000
+__Htext32                    text32       000000
+__Htext33                    text33       000000
+__Htext34                    text34       000000
+__Htext35                    text35       000000
+__Htext36                    text36       000000
+__Htext37                    text37       000000
+__Htext38                    text38       000000
+__Htext39                    text39       000000
 __Htext4                     text4        000000
+__Htext40                    text40       000000
+__Htext41                    text41       000000
 __Htext5                     text5        000000
 __Htext6                     text6        000000
 __Htext7                     text7        000000
@@ -461,6 +525,7 @@ __Lconst                     const        000000
 __LcstackBANK0               cstackBANK0  000000
 __LcstackCOMRAM              cstackCOMRAM 000000
 __Ldata                      data         000000
+__LdataBANK0                 dataBANK0    000000
 __LdataCOMRAM                dataCOMRAM   000000
 __Leeprom_data               eeprom_data  000000
 __Lend_init                  end_init     000016
@@ -468,6 +533,7 @@ __Lfarbss                    farbss       000000
 __Lfardata                   fardata      000000
 __Libigdata                  ibigdata     000000
 __Lidata                     idata        000000
+__LidataBANK0                idataBANK0   000000
 __LidataCOMRAM               idataCOMRAM  000000
 __Lidloc                     idloc        200000
 __Lifardata                  ifardata     000000
@@ -499,7 +565,7 @@ __Lspace_1                   (abs)        000000
 __Lspace_2                   (abs)        000000
 __Lstack                     stack        000000
 __Lstruct                    struct       000000
-__Ltemp                      temp         00004F
+__Ltemp                      temp         00004C
 __Ltext                      text         000000
 __Ltext0                     text0        000000
 __Ltext1                     text1        000000
@@ -516,8 +582,8 @@ __Ltext19                    text19       000000
 __Ltext2                     text2        000000
 __Ltext20                    text20       000000
 __Ltext21                    text21       000000
+__Ltext22                    text22       000000
 __Ltext23                    text23       000000
-__Ltext24                    text24       000000
 __Ltext25                    text25       000000
 __Ltext26                    text26       000000
 __Ltext27                    text27       000000
@@ -525,107 +591,143 @@ __Ltext28                    text28       000000
 __Ltext29                    text29       000000
 __Ltext3                     text3        000000
 __Ltext30                    text30       000000
+__Ltext31                    text31       000000
+__Ltext32                    text32       000000
+__Ltext33                    text33       000000
+__Ltext34                    text34       000000
+__Ltext35                    text35       000000
+__Ltext36                    text36       000000
+__Ltext37                    text37       000000
+__Ltext38                    text38       000000
+__Ltext39                    text39       000000
 __Ltext4                     text4        000000
+__Ltext40                    text40       000000
+__Ltext41                    text41       000000
 __Ltext5                     text5        000000
 __Ltext6                     text6        000000
 __Ltext7                     text7        000000
 __Ltext8                     text8        000000
 __Ltext9                     text9        000000
 __S0                         (abs)        30000E
-__S1                         (abs)        0000B8
+__S1                         (abs)        0000D2
 __S2                         (abs)        000000
-___awdiv                     text7        0008F8
-___awdiv@counter             cstackBANK0  0000B0
-___awdiv@dividend            cstackCOMRAM 00003A
-___awdiv@divisor             cstackCOMRAM 00003C
-___awdiv@quotient            cstackBANK0  0000B2
-___awdiv@sign                cstackBANK0  0000B1
+___awdiv                     text7        000958
+___awdiv@counter             cstackBANK0  0000C0
+___awdiv@dividend            cstackBANK0  0000BC
+___awdiv@divisor             cstackBANK0  0000BE
+___awdiv@quotient            cstackBANK0  0000C2
+___awdiv@sign                cstackBANK0  0000C1
 ___inthi_sp                  stack        000000
 ___intlo_sp                  stack        000000
 ___param_bank                (abs)        000010
 ___rparam_used               (abs)        000001
 ___sp                        stack        000000
-___wmul                      text6        000B38
-___wmul@multiplicand         cstackCOMRAM 000036
-___wmul@multiplier           cstackCOMRAM 000034
-___wmul@product              cstackCOMRAM 000038
+___wmul                      text6        000CB2
+___wmul@multiplicand         cstackBANK0  0000B8
+___wmul@multiplier           cstackBANK0  0000B6
+___wmul@product              cstackBANK0  0000BA
 __accesstop                  (abs)        000060
 __activetblptr               (abs)        000002
-__end_of_ConfigureTimer1     text21       000ADE
-__end_of_DHTSignalResponse   text26       000BD6
-__end_of_FirstStateRequest   text27       000B12
-__end_of_HighISR             intcode_body 0008F8
-__end_of_INIT_INTCON         text19       000C48
-__end_of_INIT_INTCON2        text18       000C30
-__end_of_INIT_INTCON3        text17       000C5E
-__end_of_INIT_IPR1           text16       000C06
-__end_of_INIT_IPR2           text15       000C22
-__end_of_INIT_PIE1           text14       000BF6
-__end_of_INIT_PIE2           text13       000C14
-__end_of_INIT_RCON           text12       000C9A
-__end_of_Idle                text28       000C9C
-__end_of_InitDHT11Driver     text20       000C68
-__end_of_Interrupt_Init      text11       000B80
-__end_of_RecievingData       text25       000A50
-__end_of_SecondStateRequest  text29       000C54
-__end_of_SetDutyCycle        text5        0009FC
-__end_of_SetPWM              text3        000BBC
-__end_of_SetPeriod           text4        000C96
-__end_of_StartPWM            text2        000C70
-__end_of_TMR0_INIT           text10       000BA0
-__end_of_TMR0_WRITE_HIGH     text9        000C80
-__end_of_TMR0_WRITE_LOW      text8        000C78
-__end_of_TurnOnLights        text1        000C3C
-__end_of__SPBRG              smallconst   000802
-__end_of___awdiv             text7        000994
-__end_of___wmul              text6        000B5E
-__end_of__initialization     cinit        000A8A
-__end_of_main                text0        000B38
-__end_ofi2_TMR0_WRITE_HIGH   text24       000C90
-__end_ofi2_TMR0_WRITE_LOW    text23       000C88
-__initialization             cinit        000A50
+__end_ofSerialCOM@_SPBRG     smallconst   000802
+__end_of_ConfigureTimer1     text23       000CB2
+__end_of_DHTSignalResponse   text37       000DAE
+__end_of_FirstStateRequest   text38       000D1C
+__end_of_HighISR             intcode_body 000958
+__end_of_INIT_INTCON         text21       000E44
+__end_of_INIT_INTCON2        text20       000E2C
+__end_of_INIT_INTCON3        text19       000E8E
+__end_of_INIT_IPR1           text18       000E02
+__end_of_INIT_IPR2           text17       000E1E
+__end_of_INIT_PIE1           text16       000DF2
+__end_of_INIT_PIE2           text15       000E10
+__end_of_INIT_RCON           text14       000EE6
+__end_of_Idle                text39       000EE8
+__end_of_InitDHT11Driver     text22       000E98
+__end_of_Interrupt_Init      text13       000D8C
+__end_of_RecievingData       text36       000C26
+__end_of_SecondStateRequest  text40       000E5C
+__end_of_SetDutyCycle        text5        000B08
+__end_of_SetPWM              text3        000DCA
+__end_of_SetPeriod           text4        000ED0
+__end_of_StartPWM            text2        000EB2
+__end_of_StopPWM             text9        000E70
+__end_of_TMR0_INIT           text12       000D44
+__end_of_TMR0_WRITE_HIGH     text11       000E84
+__end_of_TMR0_WRITE_LOW      text10       000E7A
+__end_of_TurnOffLights       text8        000ED6
+__end_of_TurnOnLights        text1        000E38
+__end_of__SPBRG              smallconst   000803
+__end_of___awdiv             text7        000A16
+__end_of___wmul              text6        000CE8
+__end_of__initialization     cinit        000B62
+__end_of_main                text0        000C6C
+__end_ofi2_SetDutyCycle      text29       000BD2
+__end_ofi2_SetPWM            text27       000DE2
+__end_ofi2_SetPeriod         text28       000EDC
+__end_ofi2_StartPWM          text26       000EBA
+__end_ofi2_StopPWM           text33       000EA2
+__end_ofi2_TMR0_WRITE_HIGH   text35       000ECA
+__end_ofi2_TMR0_WRITE_LOW    text34       000EC2
+__end_ofi2_TurnOffLights     text32       000EE2
+__end_ofi2_TurnOnLights      text25       000E50
+__end_ofi2___awdiv           text31       000A9A
+__end_ofi2___wmul            text30       000D6A
+__initialization             cinit        000B08
 __mediumconst                mediumconst  000000
-__pbitbssCOMRAM              bitbssCOMRAM 000270
+__pbitbssCOMRAM              bitbssCOMRAM 000258
 __pbssBANK0                  bssBANK0     000060
-__pbssCOMRAM                 bssCOMRAM    000001
-__pcinit                     cinit        000A50
-__pcstackBANK0               cstackBANK0  0000B0
-__pcstackCOMRAM              cstackCOMRAM 000024
-__pdataCOMRAM                dataCOMRAM   00003E
-__pidataCOMRAM               idataCOMRAM  000BD6
+__pbssCOMRAM                 bssCOMRAM    000023
+__pcinit                     cinit        000B08
+__pcstackBANK0               cstackBANK0  0000B6
+__pcstackCOMRAM              cstackCOMRAM 000001
+__pdataBANK0                 dataBANK0    0000C8
+__pdataCOMRAM                dataCOMRAM   000043
+__pidataBANK0                idataBANK0   000E5C
+__pidataCOMRAM               idataCOMRAM  000EA2
 __pintcode                   intcode      000008
 __pintcode_body              intcode_body 000804
 __psmallconst                smallconst   000800
-__ptext0                     text0        000B12
-__ptext1                     text1        000C30
-__ptext10                    text10       000B80
-__ptext11                    text11       000B5E
-__ptext12                    text12       000C96
-__ptext13                    text13       000C06
-__ptext14                    text14       000BE6
-__ptext15                    text15       000C14
-__ptext16                    text16       000BF6
-__ptext17                    text17       000C54
-__ptext18                    text18       000C22
-__ptext19                    text19       000C3C
-__ptext2                     text2        000C68
-__ptext20                    text20       000C5E
-__ptext21                    text21       000A98
-__ptext23                    text23       000C80
-__ptext24                    text24       000C88
-__ptext25                    text25       0009FC
-__ptext26                    text26       000BBC
-__ptext27                    text27       000ADE
-__ptext28                    text28       000C9A
-__ptext29                    text29       000C48
-__ptext3                     text3        000BA0
-__ptext30                    text30       000000
-__ptext4                     text4        000C90
-__ptext5                     text5        000994
-__ptext6                     text6        000B38
-__ptext7                     text7        0008F8
-__ptext8                     text8        000C70
-__ptext9                     text9        000C78
+__ptext0                     text0        000C26
+__ptext1                     text1        000E2C
+__ptext10                    text10       000E70
+__ptext11                    text11       000E7A
+__ptext12                    text12       000D1C
+__ptext13                    text13       000D6A
+__ptext14                    text14       000EE2
+__ptext15                    text15       000E02
+__ptext16                    text16       000DE2
+__ptext17                    text17       000E10
+__ptext18                    text18       000DF2
+__ptext19                    text19       000E84
+__ptext2                     text2        000EAA
+__ptext20                    text20       000E1E
+__ptext21                    text21       000E38
+__ptext22                    text22       000E8E
+__ptext23                    text23       000C6C
+__ptext25                    text25       000E44
+__ptext26                    text26       000EB2
+__ptext27                    text27       000DCA
+__ptext28                    text28       000ED6
+__ptext29                    text29       000B70
+__ptext3                     text3        000DAE
+__ptext30                    text30       000D44
+__ptext31                    text31       000A16
+__ptext32                    text32       000EDC
+__ptext33                    text33       000E98
+__ptext34                    text34       000EBA
+__ptext35                    text35       000EC2
+__ptext36                    text36       000BD2
+__ptext37                    text37       000D8C
+__ptext38                    text38       000CE8
+__ptext39                    text39       000EE6
+__ptext4                     text4        000ECA
+__ptext40                    text40       000E50
+__ptext41                    text41       000000
+__ptext5                     text5        000A9A
+__ptext6                     text6        000CB2
+__ptext7                     text7        000958
+__ptext8                     text8        000ED0
+__ptext9                     text9        000E66
 __ramtop                     ramtop       000800
 __size_of_ConfigureTimer1    (abs)        000000
 __size_of_DHTSignalResponse  (abs)        000000
@@ -648,62 +750,96 @@ __size_of_SetDutyCycle       (abs)        000000
 __size_of_SetPWM             (abs)        000000
 __size_of_SetPeriod          (abs)        000000
 __size_of_StartPWM           (abs)        000000
+__size_of_StopPWM            (abs)        000000
 __size_of_TMR0_INIT          (abs)        000000
 __size_of_TMR0_WRITE_HIGH    (abs)        000000
 __size_of_TMR0_WRITE_LOW     (abs)        000000
+__size_of_TurnOffLights      (abs)        000000
 __size_of_TurnOnLights       (abs)        000000
 __size_of___awdiv            (abs)        000000
 __size_of___wmul             (abs)        000000
 __size_of_main               (abs)        000000
+__size_ofi2_SetDutyCycle     (abs)        000000
+__size_ofi2_SetPWM           (abs)        000000
+__size_ofi2_SetPeriod        (abs)        000000
+__size_ofi2_StartPWM         (abs)        000000
+__size_ofi2_StopPWM          (abs)        000000
 __size_ofi2_TMR0_WRITE_HIGH  (abs)        000000
 __size_ofi2_TMR0_WRITE_LOW   (abs)        000000
+__size_ofi2_TurnOffLights    (abs)        000000
+__size_ofi2_TurnOnLights     (abs)        000000
+__size_ofi2___awdiv          (abs)        000000
+__size_ofi2___wmul           (abs)        000000
 __smallconst                 smallconst   000800
-_bitcount                    bssCOMRAM    000016
-_bytecount                   bssCOMRAM    000017
-_counter                     bssCOMRAM    000018
-_counts                      bssCOMRAM    00000D
-_endbyte                     dataCOMRAM   00004B
-_f_frameready                bssCOMRAM    000019
-_f_slave1                    bssCOMRAM    00001A
-_f_slave2                    bssCOMRAM    00001B
-_firstbyte                   dataCOMRAM   000048
-_firstvalue                  bssCOMRAM    00001C
-_firstvaluespaces            bssCOMRAM    00001D
-_frame                       bssCOMRAM    00001E
-_lasttime                    bssCOMRAM    00000F
-_main                        text0        000B12
-_mask                        bssCOMRAM    00001F
-_prescaler                   dataCOMRAM   00004C
-_secondvalue                 bssCOMRAM    000020
-_secondvaluespaces           bssCOMRAM    000021
-_splitbyte                   dataCOMRAM   00004D
-_state                       bssCOMRAM    000022
-_temp                        bssCOMRAM    000001
-_time                        bssCOMRAM    000023
+_bitcount                    bssCOMRAM    000034
+_bytecount                   bssCOMRAM    000035
+_counter                     bssCOMRAM    000036
+_counts                      bssCOMRAM    00002B
+_dummy                       bssCOMRAM    000037
+_endbyte                     dataCOMRAM   000048
+_f_SSPReady                  bitbssCOMRAM 00025B
+_f_Send2Bytes                bitbssCOMRAM 00025C
+_f_SendByte                  bitbssCOMRAM 00025D
+_f_frameready                bssCOMRAM    000038
+_f_slave1                    bssCOMRAM    000039
+_f_slave2                    bssCOMRAM    00003A
+_firstbyte                   dataCOMRAM   000043
+_firstvalue                  bssCOMRAM    00003B
+_firstvaluespaces            bssCOMRAM    00003C
+_frame                       bssCOMRAM    00003D
+_lasttime                    bssCOMRAM    00002D
+_main                        text0        000C26
+_mask                        bssCOMRAM    00003E
+_prescaler                   dataCOMRAM   000049
+_secondvalue                 bssCOMRAM    00003F
+_secondvaluespaces           bssCOMRAM    000040
+_splitbyte                   dataCOMRAM   00004A
+_state                       bssCOMRAM    000041
+_temp                        bssBANK0     0000B0
+_time                        bssCOMRAM    000042
 _times                       bssBANK0     000060
-btemp                        temp         00004F
-end_of_initialization        cinit        000A8A
-i2TMR0_WRITE_HIGH@valorHigh  cstackCOMRAM 000024
-i2TMR0_WRITE_LOW@valorLow    cstackCOMRAM 000024
-i2_TMR0_WRITE_HIGH           text24       000C88
-i2_TMR0_WRITE_LOW            text23       000C80
-int$flags                    temp         00004F
+btemp                        temp         00004C
+end_of_initialization        cinit        000B62
+i2SetDutyCycle@dutycycle     cstackCOMRAM 000011
+i2SetPWM@dutycycle           cstackCOMRAM 000012
+i2TMR0_WRITE_HIGH@valorHigh  cstackCOMRAM 000001
+i2TMR0_WRITE_LOW@valorLow    cstackCOMRAM 000001
+i2_SetDutyCycle              text29       000B70
+i2_SetPWM                    text27       000DCA
+i2_SetPeriod                 text28       000ED6
+i2_StartPWM                  text26       000EB2
+i2_StopPWM                   text33       000E98
+i2_TMR0_WRITE_HIGH           text35       000EC2
+i2_TMR0_WRITE_LOW            text34       000EBA
+i2_TurnOffLights             text32       000EDC
+i2_TurnOnLights              text25       000E44
+i2___awdiv                   text31       000A16
+i2___awdiv@counter           cstackCOMRAM 00000B
+i2___awdiv@dividend          cstackCOMRAM 000007
+i2___awdiv@divisor           cstackCOMRAM 000009
+i2___awdiv@quotient          cstackCOMRAM 00000D
+i2___awdiv@sign              cstackCOMRAM 00000C
+i2___wmul                    text30       000D44
+i2___wmul@multiplicand       cstackCOMRAM 000003
+i2___wmul@multiplier         cstackCOMRAM 000001
+i2___wmul@product            cstackCOMRAM 000005
+int$flags                    temp         00004C
 int_func                     intcode_body 000804
 intlevel0                    text         000000
 intlevel1                    text         000000
 intlevel2                    text         000000
 intlevel3                    text         000000
 stackhi                      (abs)        0007FF
-stacklo                      (abs)        0000B8
+stacklo                      (abs)        0000D2
 start                        init         000016
-start_initialization         cinit        000A50
+start_initialization         cinit        000B08
 
 
 FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 76 in file "Main.c"
+		line 113 in file "Main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -722,13 +858,14 @@ FUNCTION INFORMATION:
       Temps:          0       0       0       0       0       0       0       0       0
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
- Hardware stack levels required when called:    6
+ Hardware stack levels required when called:    9
  This function calls:
 		_InitDHT11Driver
 		_Interrupt_Init
 		_TMR0_INIT
 		_TMR0_WRITE_HIGH
 		_TMR0_WRITE_LOW
+		_TurnOffLights
 		_TurnOnLights
  This function is called by:
 		Startup code after reset
@@ -743,7 +880,7 @@ Total ram usage:        0 bytes
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  2   36[None  ] int 
+                  2   20[None  ] int 
  Registers used:
 		wreg, status,2, status,0, prodl, prodh, cstack
  Tracked objects:
@@ -757,7 +894,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    5
+ Hardware stack levels required when called:    8
  This function calls:
 		_SetPWM
 		_StartPWM
@@ -788,7 +925,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -802,7 +939,7 @@ Total ram usage:        0 bytes
  Parameters:    Size  Location     Type
   dutycycle       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  dutycycle       1    7[BANK0 ] unsigned char 
+  dutycycle       1   17[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -818,7 +955,7 @@ Total ram usage:        0 bytes
       Totals:         0       1       0       0       0       0       0       0       0
 Total ram usage:        1 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    4
+ Hardware stack levels required when called:    7
  This function calls:
 		_SetDutyCycle
 		_SetPeriod
@@ -849,7 +986,7 @@ Total ram usage:        1 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -863,7 +1000,7 @@ Total ram usage:        0 bytes
  Parameters:    Size  Location     Type
   dutycycle       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  dutycycle       1    6[BANK0 ] unsigned char 
+  dutycycle       1   16[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -879,7 +1016,7 @@ Total ram usage:        0 bytes
       Totals:         0       3       0       0       0       0       0       0       0
 Total ram usage:        3 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    6
  This function calls:
 		___awdiv
 		___wmul
@@ -892,12 +1029,12 @@ Total ram usage:        3 bytes
  Defined at:
 		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul16.c"
  Parameters:    Size  Location     Type
-  multiplier      2   16[COMRAM] unsigned int 
-  multiplicand    2   18[COMRAM] unsigned int 
+  multiplier      2    0[BANK0 ] unsigned int 
+  multiplicand    2    2[BANK0 ] unsigned int 
  Auto vars:     Size  Location     Type
-  product         2   20[COMRAM] unsigned int 
+  product         2    4[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
-                  2   16[COMRAM] unsigned int 
+                  2    0[BANK0 ] unsigned int 
  Registers used:
 		wreg, status,2, status,0, prodl, prodh
  Tracked objects:
@@ -905,13 +1042,13 @@ Total ram usage:        3 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         4       0       0       0       0       0       0       0       0
-      Locals:         2       0       0       0       0       0       0       0       0
+      Params:         0       4       0       0       0       0       0       0       0
+      Locals:         0       2       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         6       0       0       0       0       0       0       0       0
+      Totals:         0       6       0       0       0       0       0       0       0
 Total ram usage:        6 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -923,14 +1060,14 @@ Total ram usage:        6 bytes
  Defined at:
 		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c"
  Parameters:    Size  Location     Type
-  dividend        2   22[COMRAM] int 
-  divisor         2   24[COMRAM] int 
+  dividend        2    6[BANK0 ] int 
+  divisor         2    8[BANK0 ] int 
  Auto vars:     Size  Location     Type
-  quotient        2    2[BANK0 ] int 
-  sign            1    1[BANK0 ] unsigned char 
-  counter         1    0[BANK0 ] unsigned char 
+  quotient        2   12[BANK0 ] int 
+  sign            1   11[BANK0 ] unsigned char 
+  counter         1   10[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
-                  2   22[COMRAM] int 
+                  2    6[BANK0 ] int 
  Registers used:
 		wreg, status,2, status,0
  Tracked objects:
@@ -938,17 +1075,77 @@ Total ram usage:        6 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         4       0       0       0       0       0       0       0       0
+      Params:         0       4       0       0       0       0       0       0       0
       Locals:         0       4       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         4       4       0       0       0       0       0       0       0
+      Totals:         0       8       0       0       0       0       0       0       0
 Total ram usage:        8 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
 		_SetDutyCycle
+ This function uses a non-reentrant model
+
+
+ *************** function _TurnOffLights *****************
+ Defined at:
+		line 3 in file "LedDriver.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  2   16[None  ] int 
+ Registers used:
+		wreg, status,2, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    6
+ This function calls:
+		_StopPWM
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _StopPWM *****************
+ Defined at:
+		line 21 in file "PWM.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		Nothing
+ This function is called by:
+		_TurnOffLights
  This function uses a non-reentrant model
 
 
@@ -958,7 +1155,7 @@ Total ram usage:        8 bytes
  Parameters:    Size  Location     Type
   valorLow        1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  valorLow        1   16[COMRAM] unsigned char 
+  valorLow        1    0[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -969,12 +1166,12 @@ Total ram usage:        8 bytes
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         1       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         1       0       0       0       0       0       0       0       0
+      Totals:         0       1       0       0       0       0       0       0       0
 Total ram usage:        1 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -988,7 +1185,7 @@ Total ram usage:        1 bytes
  Parameters:    Size  Location     Type
   valorHigh       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  valorHigh       1   16[COMRAM] unsigned char 
+  valorHigh       1    0[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -999,12 +1196,12 @@ Total ram usage:        1 bytes
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         1       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         1       0       0       0       0       0       0       0       0
+      Totals:         0       1       0       0       0       0       0       0       0
 Total ram usage:        1 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -1018,8 +1215,8 @@ Total ram usage:        1 bytes
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  T0PS            1   17[COMRAM] unsigned char 
-  bits            1   16[COMRAM] unsigned char 
+  T0PS            1    1[BANK0 ] unsigned char 
+  bits            1    0[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1030,12 +1227,12 @@ Total ram usage:        1 bytes
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         2       0       0       0       0       0       0       0       0
+      Locals:         0       2       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         2       0       0       0       0       0       0       0       0
+      Totals:         0       2       0       0       0       0       0       0       0
 Total ram usage:        2 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -1065,7 +1262,7 @@ Total ram usage:        2 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    6
  This function calls:
 		_INIT_INTCON
 		_INIT_INTCON2
@@ -1102,7 +1299,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -1132,7 +1329,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -1162,7 +1359,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -1192,7 +1389,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -1222,7 +1419,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -1252,7 +1449,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -1282,7 +1479,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -1312,7 +1509,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -1322,7 +1519,7 @@ Total ram usage:        0 bytes
 
  *************** function _InitDHT11Driver *****************
  Defined at:
-		line 104 in file "DHT11Driver.c"
+		line 106 in file "DHT11Driver.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1342,7 +1539,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    6
  This function calls:
 		_ConfigureTimer1
  This function is called by:
@@ -1358,7 +1555,7 @@ Total ram usage:        0 bytes
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  2  247[None  ] int 
+                  2  282[None  ] int 
  Registers used:
 		wreg, status,2, status,0
  Tracked objects:
@@ -1372,7 +1569,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    5
  This function calls:
 		Nothing
  This function is called by:
@@ -1382,7 +1579,7 @@ Total ram usage:        0 bytes
 
  *************** function _HighISR *****************
  Defined at:
-		line 33 in file "Main.c"
+		line 48 in file "Main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1398,11 +1595,11 @@ Total ram usage:        0 bytes
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
-      Temps:         14       0       0       0       0       0       0       0       0
-      Totals:        14       0       0       0       0       0       0       0       0
-Total ram usage:       14 bytes
+      Temps:         16       0       0       0       0       0       0       0       0
+      Totals:        16       0       0       0       0       0       0       0       0
+Total ram usage:       16 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    1
+ Hardware stack levels required when called:    4
  This function calls:
 		_DHTSignalResponse
 		_FirstStateRequest
@@ -1411,8 +1608,282 @@ Total ram usage:       14 bytes
 		_SecondStateRequest
 		i2_TMR0_WRITE_HIGH
 		i2_TMR0_WRITE_LOW
+		i2_TurnOffLights
+		i2_TurnOnLights
  This function is called by:
 		Interrupt level 2
+ This function uses a non-reentrant model
+
+
+ *************** function i2_TurnOnLights *****************
+ Defined at:
+		line 7 in file "LedDriver.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  2    0[None  ] int 
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		i2_SetPWM
+		i2_StartPWM
+ This function is called by:
+		_HighISR
+ This function uses a non-reentrant model
+
+
+ *************** function i2_StartPWM *****************
+ Defined at:
+		line 16 in file "PWM.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		i2_TurnOnLights
+ This function uses a non-reentrant model
+
+
+ *************** function i2_SetPWM *****************
+ Defined at:
+		line 43 in file "PWM.c"
+ Parameters:    Size  Location     Type
+  dutycycle       1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  dutycycle       1   17[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		i2_SetDutyCycle
+		i2_SetPeriod
+ This function is called by:
+		i2_TurnOnLights
+ This function uses a non-reentrant model
+
+
+ *************** function i2_SetPeriod *****************
+ Defined at:
+		line 27 in file "PWM.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		i2_SetPWM
+ This function uses a non-reentrant model
+
+
+ *************** function i2_SetDutyCycle *****************
+ Defined at:
+		line 32 in file "PWM.c"
+ Parameters:    Size  Location     Type
+  dutycycle       1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  dutycycle       1   16[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0
+      Totals:         3       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		i2___awdiv
+		i2___wmul
+ This function is called by:
+		i2_SetPWM
+ This function uses a non-reentrant model
+
+
+ *************** function i2___wmul *****************
+ Defined at:
+		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul16.c"
+ Parameters:    Size  Location     Type
+  multiplier      2    0[COMRAM] unsigned int 
+  multiplicand    2    2[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  __wmul          2    4[COMRAM] unsigned int 
+ Return value:  Size  Location     Type
+                  2    0[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         4       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		i2_SetDutyCycle
+ This function uses a non-reentrant model
+
+
+ *************** function i2___awdiv *****************
+ Defined at:
+		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c"
+ Parameters:    Size  Location     Type
+  dividend        2    6[COMRAM] int 
+  divisor         2    8[COMRAM] int 
+ Auto vars:     Size  Location     Type
+  __awdiv         2   12[COMRAM] int 
+  __awdiv         1   11[COMRAM] unsigned char 
+  __awdiv         1   10[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  2    6[COMRAM] int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         4       0       0       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         8       0       0       0       0       0       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		i2_SetDutyCycle
+ This function uses a non-reentrant model
+
+
+ *************** function i2_TurnOffLights *****************
+ Defined at:
+		line 3 in file "LedDriver.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  2    0[None  ] int 
+ Registers used:
+		wreg, status,2, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		i2_StopPWM
+ This function is called by:
+		_HighISR
+ This function uses a non-reentrant model
+
+
+ *************** function i2_StopPWM *****************
+ Defined at:
+		line 21 in file "PWM.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		i2_TurnOffLights
  This function uses a non-reentrant model
 
 
@@ -1476,7 +1947,7 @@ Total ram usage:        1 bytes
 
  *************** function _RecievingData *****************
  Defined at:
-		line 62 in file "DHT11Driver.c"
+		line 64 in file "DHT11Driver.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1505,7 +1976,7 @@ Total ram usage:        2 bytes
 
  *************** function _DHTSignalResponse *****************
  Defined at:
-		line 51 in file "DHT11Driver.c"
+		line 52 in file "DHT11Driver.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1592,7 +2063,7 @@ Total ram usage:        0 bytes
 
  *************** function _SecondStateRequest *****************
  Defined at:
-		line 44 in file "DHT11Driver.c"
+		line 45 in file "DHT11Driver.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1624,74 +2095,86 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c
-		___awdiv       		CODE           	08F8	0000	157
+		___awdiv       		CODE           	0958	0000	191
 
-C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c estimated size: 157
+C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\awdiv.c estimated size: 191
 
 CCP1.c
-		_ConfigureTimer1		CODE           	0A98	0000	71
+		_ConfigureTimer1		CODE           	0C6C	0000	71
 
 CCP1.c estimated size: 71
 
 LedDriver.c
-		_TurnOnLights  		CODE           	0C30	0000	13
+		_TurnOnLights  		CODE           	0E2C	0000	13
+		_TurnOffLights 		CODE           	0ED0	0000	7
 
-LedDriver.c estimated size: 13
+LedDriver.c estimated size: 20
 
 Interrupts.c
-		_INIT_INTCON   		CODE           	0C3C	0000	13
-		_INIT_INTCON2  		CODE           	0C22	0000	15
-		_INIT_INTCON3  		CODE           	0C54	0000	11
-		_INIT_IPR1     		CODE           	0BF6	0000	17
-		_INIT_IPR2     		CODE           	0C14	0000	15
-		_Interrupt_Init		CODE           	0B5E	0000	35
-		_INIT_RCON     		CODE           	0C96	0000	5
-		_INIT_PIE1     		CODE           	0BE6	0000	17
-		_INIT_PIE2     		CODE           	0C06	0000	15
+		_INIT_INTCON   		CODE           	0E38	0000	13
+		_INIT_INTCON2  		CODE           	0E1E	0000	15
+		_INIT_INTCON3  		CODE           	0E84	0000	11
+		_INIT_IPR1     		CODE           	0DF2	0000	17
+		_INIT_IPR2     		CODE           	0E10	0000	15
+		_Interrupt_Init		CODE           	0D6A	0000	35
+		_INIT_RCON     		CODE           	0EE2	0000	5
+		_INIT_PIE1     		CODE           	0DE2	0000	17
+		_INIT_PIE2     		CODE           	0E02	0000	15
 
 Interrupts.c estimated size: 143
 
 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul16.c
-		___wmul        		CODE           	0B38	0000	39
+		___wmul        		CODE           	0CB2	0000	55
 
-C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul16.c estimated size: 39
+C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul16.c estimated size: 55
 
 PWM.c
-		_SetDutyCycle  		CODE           	0994	0000	105
-		_SetPWM        		CODE           	0BA0	0000	29
-		_StartPWM      		CODE           	0C68	0000	9
-		_SetPeriod     		CODE           	0C90	0000	7
+		_SetDutyCycle  		CODE           	0A9A	0000	111
+		_SetPWM        		CODE           	0DAE	0000	29
+		_StopPWM       		CODE           	0E66	0000	11
+		_StartPWM      		CODE           	0EAA	0000	9
+		_SetPeriod     		CODE           	0ECA	0000	7
 
-PWM.c estimated size: 150
+PWM.c estimated size: 167
 
 Main.c
-		_main          		CODE           	0B12	0000	39
-		_HighISR       		CODE           	0008	0000	259
+		_main          		CODE           	0C26	0000	71
+		_HighISR       		CODE           	0008	0000	355
 
-Main.c estimated size: 298
+Main.c estimated size: 426
 
 shared
-		i2_TMR0_WRITE_HIGH		CODE           	0C88	0000	9
-		__initialization		CODE           	0A50	0000	59
+		i2_SetDutyCycle		CODE           	0B70	0000	99
+		i2_SetPWM      		CODE           	0DCA	0000	25
+		i2___awdiv     		CODE           	0A16	0000	133
+		i2___wmul      		CODE           	0D44	0000	39
+		i2_TMR0_WRITE_HIGH		CODE           	0EC2	0000	9
+		i2_TurnOnLights		CODE           	0E44	0000	13
+		__initialization		CODE           	0B08	0000	91
 		__SPBRG        		SMALLCONST     	0000	0000	0
-		i2_TMR0_WRITE_LOW		CODE           	0C80	0000	9
+		SerialCOM@_SPBRG		SMALLCONST     	0801	0000	2
+		i2_TurnOffLights		CODE           	0EDC	0000	7
+		i2_TMR0_WRITE_LOW		CODE           	0EBA	0000	9
+		i2_StopPWM     		CODE           	0E98	0000	11
+		i2_SetPeriod   		CODE           	0ED6	0000	7
+		i2_StartPWM    		CODE           	0EB2	0000	9
 
-shared estimated size: 77
+shared estimated size: 454
 
 Timer_0.c
-		_TMR0_WRITE_LOW		CODE           	0C70	0000	9
-		_TMR0_WRITE_HIGH		CODE           	0C78	0000	9
-		_TMR0_INIT     		CODE           	0B80	0000	33
+		_TMR0_WRITE_LOW		CODE           	0E70	0000	11
+		_TMR0_WRITE_HIGH		CODE           	0E7A	0000	11
+		_TMR0_INIT     		CODE           	0D1C	0000	41
 
-Timer_0.c estimated size: 51
+Timer_0.c estimated size: 63
 
 DHT11Driver.c
-		_SecondStateRequest		CODE           	0C48	0000	13
-		_Idle          		CODE           	0C9A	0000	3
-		_InitDHT11Driver		CODE           	0C5E	0000	11
-		_DHTSignalResponse		CODE           	0BBC	0000	27
-		_FirstStateRequest		CODE           	0ADE	0000	53
-		_RecievingData 		CODE           	09FC	0000	85
+		_SecondStateRequest		CODE           	0E50	0000	13
+		_Idle          		CODE           	0EE6	0000	3
+		_InitDHT11Driver		CODE           	0E8E	0000	11
+		_DHTSignalResponse		CODE           	0D8C	0000	35
+		_FirstStateRequest		CODE           	0CE8	0000	53
+		_RecievingData 		CODE           	0BD2	0000	85
 
-DHT11Driver.c estimated size: 192
+DHT11Driver.c estimated size: 200
 
