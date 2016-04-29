@@ -4807,8 +4807,11 @@ u8 dummy;
 
 
 u16 LightValue=0;
+u8 serialcount;
+u8 RecievedData[15];
 
 
+extern u8 f_frameready;
 
 
 bit Light_f;
@@ -4821,19 +4824,25 @@ bit f_SendByte;
 
 void interrupt high_priority HighISR (void){
 
+
 if(INT2IF){
 INT2IF=0;
-if(Light_f){
-(LATA0=0U);
-TurnOffLights();
-INTEDG2=1U;
-Light_f=0;
+
+# 69
 }
-else{
-(LATA0=1U);
-TurnOnLights();
-INTEDG2=0U;
-Light_f=1;
+
+if((RCIF && RCIE))
+{
+RCIF=0;
+if(RCREG!='\n' && RCREG!=0xea)
+{
+RecievedData[serialcount]=RCREG;
+serialcount++;
+}
+if(RCREG==0x24)
+{
+serialcount=0;
+f_frameready=1;
 }
 }
 
@@ -4904,18 +4913,13 @@ InitDHT11Driver();
 (TRISAbits.TRISA0 = 0);
 
 while(1){
-if((0u != PORTAbits.RA0) && Light_f==0){
+if(PORTBbits.RB2){
 (LATA0=1U);
-TurnOnLights();
-INTEDG2=0U;
-Light_f=1;
 }
-else if((0u == PORTAbits.RA0) && Light_f==1){
+else if(!PORTBbits.RB2) {
 (LATA0=0U);
-TurnOffLights();
-INTEDG2=1U;
-Light_f=0;
 }
+
 }
 
 }

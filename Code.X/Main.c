@@ -33,8 +33,11 @@ u8 dummy;
 
 //Globales
 u16 LightValue=0;
+u8 serialcount;
+u8 RecievedData[15];
 
 //Extern
+extern u8 f_frameready;
 
 //Banderas globales
 bit Light_f;        //Flag to know if the lights are on
@@ -47,9 +50,10 @@ bit f_SendByte;     //Flag to know if there is a message to be sent
 /*      ISR             */
 void interrupt high_priority HighISR (void){
     
-    /*
+    
     if(INT2IF){
         INT2IF=0;
+        /*
         if(Light_f){
             IO_CLR(FanPort,FanPin);
             TurnOffLights();
@@ -61,8 +65,23 @@ void interrupt high_priority HighISR (void){
             TurnOnLights();
             INTEDG2=OFF;
             Light_f=1;
+        }*/
+    }
+    
+    if((RCIF && RCIE))
+    {
+        RCIF=0;
+        if(RCREG!='\n' && RCREG!=0xea)
+        {
+        RecievedData[serialcount]=RCREG;
+        serialcount++;
         }
-    }*/
+        if(RCREG==0x24) //$
+        {
+            serialcount=0;
+            f_frameready=1;
+        }
+    }
     
     if(ADIF){
         ADIF=0;
@@ -95,8 +114,11 @@ void interrupt high_priority HighISR (void){
         if(TimerCounter<2) TimerCounter++;        //Valor Real 239, 
         else{
             TMR0_STATE_OFF;
+            //Start DHT Cycle
             DHT_StateMachine[_FirstStateRequest]();
-            TimerCounter=0;
+            //Start ADC conversion
+            
+            TimerCounter=0;         
         }
         TMR0_WRITE_HIGH(0xF0);
         TMR0_WRITE_LOW(0xBD);
@@ -124,6 +146,9 @@ void main(void) {
     TMR0_WRITE_LOW(0xBD);
     TMR0_STATE_ON;
     
+    //Config ADC
+    
+    
     //Config DHT
     InitDHT11Driver();
     
@@ -131,6 +156,13 @@ void main(void) {
     IO_CONFIG_OUT(FanPort,FanPin);
     
     while(1){
+        if(PORTBbits.RB2){
+            IO_SET(FanPort,FanPin);
+        }
+        else if(!PORTBbits.RB2) {
+            IO_CLR(FanPort,FanPin);
+        }
+        
         
     }
     

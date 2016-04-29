@@ -38,7 +38,7 @@ u8 f_slave2;
 //Function prototypes
 
 void SerialInit(void);
-//u16* ReadFrame(u8 *pointer);
+u16* ReadFrame(u8 *pointer);
 
 
 
