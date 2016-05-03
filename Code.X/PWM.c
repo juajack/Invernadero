@@ -9,6 +9,7 @@
 #include "PWM.h"
 u16 MSb;
 u16 LSb;
+bit PWM;
 
 u16 PWMValue;
 

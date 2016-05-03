@@ -25,7 +25,7 @@
 void INIT_INTCON(void);
 
 //INTCON2
-#define nRB_PULLUP  OFF       //PORTB pull up enable
+#define nRB_PULLUP  ON       //PORTB pull up enable
 #define INT0_EDGE   OFF       //External interrupt 0 edge select(1=rising)
 #define INT1_EDGE   OFF       //External interrupt 1 edge select(1=rising)
 #define INT2_EDGE   ON      //External interrupt 2 edge select(1=rising)
@@ -49,7 +49,7 @@ void INIT_RCON(void);
 
 //PIE1
 #define AD_IE      ON        //A/D Converter Interrupt Enable bit
-#define RC_IE      OFF        //EUSART Receive Interrupt Enable bit
+#define RC_IE      ON        //EUSART Receive Interrupt Enable bit
 #define TX_IE      OFF        //EUSART Transmit Interrupt Enable bit
 #define SSP_IE     OFF       //Master Synchronous Serial Port Interrupt Enable bit
 #define CCP1_IE    OFF        //CCP1 Interrupt Enable bit
@@ -70,7 +70,7 @@ void INIT_PIE2(void);
 
 //IPR1
 #define AD_IP      ON      //A/D Converter Interrupt Priority bit
-#define RC_IP      OFF      //EUSART Receive Interrupt Priority bit
+#define RC_IP      ON      //EUSART Receive Interrupt Priority bit
 #define TX_IP      OFF      //EUSART Transmit Interrupt Priority bit
 #define SSP_IP     OFF     //Master Synchronous Serial Port Interrupt Priorrity bit
 #define CCP1_IP    ON      //CCP1 Interrupt Priority bit

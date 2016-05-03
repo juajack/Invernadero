@@ -20,21 +20,34 @@
 
 /*      Constantst      */
 //Valores de iluminación a prueba 
-u8 MaxLightValue = 1000;
-u8 MinLightValue = 200;
-#define FanPort A
-#define FanPin 0
+//u8 MaxLightValue = 70;
+u8 MinLightValue = 80;
+#define FanPort     A
+#define FanPin      3
+#define DoorPort    B
+#define DoorPin     3
 
 /*      Variables       */
 //Local
 DHT_StateMachine1 state = _Idle;
 u8 TimerCounter=0;
-u8 dummy;
+u8 TimerUser=0;
 
 //Globales
 u16 LightValue=0;
 u8 serialcount;
 u8 RecievedData[15];
+u8 actualtemperature;
+u8 actualhumidity;
+u8 optimaltemperature;
+u8 optimalhumidity;
+
+
+u16 lightperday = 1435;    //needed light per day
+u16 lightcounter = 0;   //how much light have the plants received?
+u16 totaldaytime = 1440; //a day have 1440 minutes
+u16 actualtime = 0;     
+u16 timetostartlight;
 
 //Extern
 extern u8 f_frameready;
@@ -46,28 +59,31 @@ bit Night_f;        //Flag to know if the sun light is down
 bit f_SSPReady;     //Flag to know if the frame is complete
 bit f_Send2Bytes;
 bit f_SendByte;     //Flag to know if there is a message to be sent
+bit lightstate;
+
+//hace falta una bandera de debería estar encendio el ventilador? Debería estar
+// encendido las luces?
+
 
 /*      ISR             */
 void interrupt high_priority HighISR (void){
     
-    
+    //Pin Interrupt
     if(INT2IF){
         INT2IF=0;
-        /*
-        if(Light_f){
-            IO_CLR(FanPort,FanPin);
-            TurnOffLights();
+        if(Door_f){        //Pregunta por el estado pasado     
             INTEDG2=ON;
-            Light_f=0;
+            Door_f=0;
         }
-        else{
-            IO_SET(FanPort,FanPin);
+        else{            
             TurnOnLights();
+            lightstate=1;
             INTEDG2=OFF;
-            Light_f=1;
-        }*/
+            Door_f=1;
+        }
     }
     
+    //Serial
     if((RCIF && RCIE))
     {
         RCIF=0;
@@ -83,54 +99,61 @@ void interrupt high_priority HighISR (void){
         }
     }
     
+    //ADC
     if(ADIF){
         ADIF=0;
-        if((ADRES>=MaxLightValue) && (Light_f==1)){
-            //Do something
-            dummy++;
+        if(ADRES<=MinLightValue){
+            lightcounter++;
+            Light_f=0;
         }
-        else if ((ADRES>=MaxLightValue) && (Light_f == 0)){
-            //Do something
-            dummy++;
+        if(ADRES>MinLightValue ){
+            if(lightcounter<=lightperday && actualtime>timetostartlight ){
+                Light_f=1;
+                lightcounter++;
+            }
+            else{
+                Light_f=0;
+            }
         }
-        else if ((ADRES <= MinLightValue) && (Light_f ==1)){
-            //Do something
-            dummy++;
-        }
-        else if ((ADRES <= MinLightValue) && (Light_f ==1)){
-            //Do something
-            dummy++;
-        }
-        else{
-            dummy++;
-            //Nothing to do
-        }
+        
     }
-
-    
+    //Timer 0
     if(TMR0IF){
-        //Configurar el TMR0 para interrupcion cada minuto
+        //Interrupt every 2 secs
         TMR0IF=0;
-        if(TimerCounter<2) TimerCounter++;        //Valor Real 239, 
-        else{
-            TMR0_STATE_OFF;
-            //Start DHT Cycle
+        TimerCounter++;
+        if (TimerCounter==1) TXREG='%';
+        if (TimerCounter==2) TXREG='F';
+        if (TimerCounter==3) TXREG='$';
+        
+        if (TimerUser!=0)TimerUser--;
+        if (TimerCounter==3){      //1 min
+            TimerCounter=0;
+            actualtime++;
+            //RUN ADC
+            ADCON0bits.GO=1;
+            //RUN DHT
             DHT_StateMachine[_FirstStateRequest]();
-            //Start ADC conversion
-            
-            TimerCounter=0;         
+            if (actualtime==totaldaytime) {
+                //Start Again all the values
+                actualtime=0;
+                lightcounter=0;
+                //Calculate the light needed
+                timetostartlight=totaldaytime-lightperday;
+            }            
         }
-        TMR0_WRITE_HIGH(0xF0);
-        TMR0_WRITE_LOW(0xBD);
+        TMR0_STATE_OFF;
+        TMR0_WRITE_HIGH(0xB);
+        TMR0_WRITE_LOW(0xD0);
         TMR0_STATE_ON;
     }
     
+    //CCP-----------------CHECKED
     if (CCP1IF){
         CCP1IF=0;
-        (*DHT_StateMachine[state])();
+        DHT_StateMachine[state]();
     }
 }
-
 
 /*      MAIN        */
 void main(void) {
@@ -142,28 +165,46 @@ void main(void) {
     //ConfigTimer
     TMR0_INIT();
     TMR0ON = 0;
-    TMR0_WRITE_HIGH(0xF0);
-    TMR0_WRITE_LOW(0xBD);
+    TMR0_WRITE_HIGH(0xB);
+    TMR0_WRITE_LOW(0xD0);
     TMR0_STATE_ON;
     
     //Config ADC
-    
+    ADCON0=0b00001001;
+    ADCON1=0b00001100;
+    ADCON2bits.ADFM=1;
     
     //Config DHT
     InitDHT11Driver();
     
     //Config Fan
     IO_CONFIG_OUT(FanPort,FanPin);
+    IO_SET(FanPort,FanPin);
     
-    while(1){
-        if(PORTBbits.RB2){
-            IO_SET(FanPort,FanPin);
+    TurnOffLights();
+    lightstate=1;
+    timetostartlight=totaldaytime-lightperday;
+    
+    //Serial Init
+    SerialInit();
+            
+    while(1){  
+        //Ask if the user activated something
+        if(TimerUser==0){
+            //The pic has the control over the Fan and ilumination system
+            if(actualtime>timetostartlight){
+                if(Light_f==0){
+                    TurnOffLights();
+                }
+                else if (Light_f==1){
+                    TurnOnLights();
+                }    
+            }
+            
         }
-        else if(!PORTBbits.RB2) {
-            IO_CLR(FanPort,FanPin);
-        }
-        
-        
+        if(f_frameready){
+            ReadFrame(RecievedData);
+        }       
     }
     
 }

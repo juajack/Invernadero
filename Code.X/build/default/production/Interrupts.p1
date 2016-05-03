@@ -3703,9 +3703,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Interrupts.c: 28: void INIT_INTCON2(void){
 [e :U _INIT_INTCON2 ]
 [f ]
-[; ;Interrupts.c: 29: INTCON2bits.nRBPU=0U;
+[; ;Interrupts.c: 29: INTCON2bits.nRBPU=1U;
 "29
-[e = . . _INTCON2bits 1 7 -> -> 0 `ui `uc ]
+[e = . . _INTCON2bits 1 7 -> -> 1 `ui `uc ]
 [; ;Interrupts.c: 30: INTCON2bits.INTEDG0=0U;
 "30
 [e = . . _INTCON2bits 1 6 -> -> 0 `ui `uc ]
@@ -3773,9 +3773,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Interrupts.c: 54: PIE1bits.ADIE = 1U;
 "54
 [e = . . _PIE1bits 0 6 -> -> 1 `ui `uc ]
-[; ;Interrupts.c: 55: PIE1bits.RCIE = 0U;
+[; ;Interrupts.c: 55: PIE1bits.RCIE = 1U;
 "55
-[e = . . _PIE1bits 0 5 -> -> 0 `ui `uc ]
+[e = . . _PIE1bits 0 5 -> -> 1 `ui `uc ]
 [; ;Interrupts.c: 56: PIE1bits.TXIE = 0U;
 "56
 [e = . . _PIE1bits 0 4 -> -> 0 `ui `uc ]
@@ -3834,9 +3834,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Interrupts.c: 75: IPR1bits.ADIP=1U;
 "75
 [e = . . _IPR1bits 0 6 -> -> 1 `ui `uc ]
-[; ;Interrupts.c: 76: IPR1bits.RCIP=0U;
+[; ;Interrupts.c: 76: IPR1bits.RCIP=1U;
 "76
-[e = . . _IPR1bits 0 5 -> -> 0 `ui `uc ]
+[e = . . _IPR1bits 0 5 -> -> 1 `ui `uc ]
 [; ;Interrupts.c: 77: IPR1bits.TXIP=0U;
 "77
 [e = . . _IPR1bits 0 4 -> -> 0 `ui `uc ]

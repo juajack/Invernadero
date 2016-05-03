@@ -6,10 +6,22 @@
  */
 
 #include "SerialCOM.h"
+#include "LedDriver.h"
 
 extern u8 f_SSPReady;
 extern u8 f_Send2Bytes;
 extern u8 f_SendByte;
+
+extern u8 TimerUser;
+
+#define FanPort A
+#define FanPin  3
+
+extern u16 lightperday;
+extern u8 actualtemperature;
+extern u8 actualhumidity;
+extern u8 optimaltemperature;
+extern u8 optimalhumidity;
 
 
 
@@ -55,8 +67,8 @@ void SerialInit (void)
 ------------------------------------------------------------------------------*/
 
 
-/*
-u16* ReadFrame(u8* pointer){
+
+void ReadFrame(u8* pointer){
 
     //static char value[2] = {0,0};
     if(f_frameready){
@@ -64,108 +76,65 @@ u16* ReadFrame(u8* pointer){
         //extern u16 value[2] = {0,0};
         pointer = &RecievedData[0];
 
-        //MOVEMENT COMMAND
-        if ((*pointer)==firstbyte[0])
+        if ((*pointer)==firstbyte[0])       //#, encender
         {
-            
-            value[0]=0;
-            value[1]=0;
             pointer++;
-            while(*pointer!=splitbyte)
-            {
-                *pointer++;
-                firstvaluespaces++;
+            if(*pointer==light){
+                TurnOnLights();
             }
-            pointer-=firstvaluespaces;
-            u16 temp1=1;
-            while(firstvaluespaces!=0)
-            {
-                for(u8 i = 0; i<firstvaluespaces-1;i++)
-                {
-                    temp1*=10;
-                }
-                value[0]+=(*pointer-0x30)*temp1;
-                firstvaluespaces--;
-                pointer++;
-                temp1=1;
+            if(*pointer==fan){
+                IO_SET(FanPort,FanPin);
             }
+            TimerUser=30;
+        }
+        else if (*pointer==firstbyte[1]){       //&, nuevos valores para temp y hum
             pointer++;
-            while(*pointer!=endbyte)
-            {
-                *pointer++;
-                secondvaluespaces++;
-            }
-            pointer-=secondvaluespaces;
-            u16 temp2=1;
-            while(secondvaluespaces!=0)
-            {
-                for(u8 i = 0; i<secondvaluespaces-1;i++)
-                {
-                    temp2*=10;
-                }
-                value[1]+=(*pointer-0x30)*temp2;
-                secondvaluespaces--;
+            if(*pointer=='H'){
                 pointer++;
-                temp2=1;
+                optimalhumidity= *pointer;                
             }
-            for(counter = 0;counter<=14;counter++)
-            {
-                RecievedData[counter]='\0';
+            else if (*pointer=='T'){
+                pointer++;
+                optimalhumidity = *pointer;
             }
-            TXREG='#';
-            while(TRMT==0);
-            TXREG='\n';
-
-            f_slave1=1;
-            f_slave2=1;
         }
-
-        //STOP COMMAND
-        else if (*pointer==firstbyte[1])
+        else if (*pointer==firstbyte[2])    //!, nueva luz diaria necesaria
         {
-            for(counter = 0;counter<=14;counter++)
-            {
-                RecievedData[counter]='\0';
-            }
-
-            TXREG='%';
-            while(TRMT==0);
-            TXREG='\n';
-            
-            value[0]=firstbyte[1];
-            value[1]=firstbyte[1];
-            f_slave1=1;
-            f_slave2=1;
+            pointer++;
+            lightperday = (*pointer-0x30)*1000;
+            pointer++;
+            lightperday += (*pointer-0x30)*100;
+            pointer++;
+            lightperday += (*pointer-0x30)*10;
+            pointer++;
+            lightperday += (*pointer-0x30);
         }
-        //Send slaves to zero position
-        else if (*pointer==firstbyte[2])
+        else if (*pointer==firstbyte[3])    //@, peticion de datos
         {
-            for(counter = 0;counter<=14;counter++)
+            pointer++;
+            if(*pointer=='H'){
+                TXREG=actualhumidity;
+            }
+            if(*pointer=='T'){
+                TXREG=actualtemperature;
+            } 
+        }    
+        else if (*pointer==firstbyte[4])    //%, apagar
+        {
+            pointer++;
+            if(*pointer=='F'){
+                IO_CLR(FanPort,FanPin);
+            }
+        }
+        
+        
+        //al final, limpiar la variable
+        for(counter = 0;counter<=14;counter++)
             {
                 RecievedData[counter]='\0';
             }
-
-            TXREG='@';
-            while(TRMT==0);
-            TXREG='\n';
-            value[0]=firstbyte[2];
-            value[1]=firstbyte[2];
-            f_slave1=1;
-            f_slave2=1;
-        }
-        //not a valid command
-        else {
-            for(counter = 0;counter<=14;counter++)
-            {
-                RecievedData[counter]='\0';
-            }
-
-            value[0]=0x21;
-        }
     }
-    return value;
-
 }
-*/
+
 
 

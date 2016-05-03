@@ -17,7 +17,7 @@
 #define T0_CS       0 //0=Internal Clock source, 1 = Transition on T0CLK Pin
 #define T0_SE       0 //1= increment on positive edge, 0 = increment on negative edge
 #define PSA_AS      0 //0=Prescaler asigned, 1 = Prescaler is not asigned
-#define PRESCALER   256 //Select prescaler to 2,4,8,16,32,64,128,256
+#define PRESCALER   32 //Select prescaler to 2,4,8,16,32,64,128,256
 
 #define TMR0_STATE_ON   TMR0ON = 1
 #define TMR0_STATE_OFF  TMR0ON = 0

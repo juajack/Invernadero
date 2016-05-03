@@ -10,12 +10,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _DHTSignalResponse `(v ~T0 @X0 0 ef ]
 "30
 [v _RecievingData `(v ~T0 @X0 0 ef ]
-"30 Main.c
+"32 Main.c
 [c E3751 0 1 2 3 4 .. ]
 [n E3751 . _Idle _FirstStateRequest _SecondStateRequest _DHTSignalResponse _RecievingData  ]
 "8626 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18f2550.h
 [v _INT2IF `Vb ~T0 @X0 0 e@32641 ]
-"8930
+"8636
+[v _INTEDG2 `Vb ~T0 @X0 0 e@32652 ]
+"79 Main.c
+[v _TurnOnLights `(i ~T0 @X0 0 ef ]
+"8930 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18f2550.h
 [v _RCIF `Vb ~T0 @X0 0 e@31989 ]
 "8928
 [v _RCIE `Vb ~T0 @X0 0 e@31981 ]
@@ -27,6 +31,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADRES `Vus ~T0 @X0 0 e@4035 ]
 "9118
 [v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
+"4791
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
+"5824
+[s S365 :1 `uc 1 :1 `uc 1 ]
+[n S365 . . GO_NOT_DONE ]
+"5828
+[s S366 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S366 . ADON GO_nDONE CHS ]
+"5833
+[s S367 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S367 . . GO_DONE CHS0 CHS1 CHS2 CHS3 ]
+"5841
+[s S368 :1 `uc 1 :1 `uc 1 ]
+[n S368 . . DONE ]
+"5845
+[s S369 :1 `uc 1 :1 `uc 1 ]
+[n S369 . . GO ]
+"5849
+[s S370 :1 `uc 1 :1 `uc 1 ]
+[n S370 . . NOT_DONE ]
+"5853
+[s S371 :1 `uc 1 :1 `uc 1 ]
+[n S371 . . nDONE ]
+"5857
+[s S372 :1 `uc 1 :1 `uc 1 ]
+[n S372 . . GODONE ]
+"5823
+[u S364 `S365 1 `S366 1 `S367 1 `S368 1 `S369 1 `S370 1 `S371 1 `S372 1 ]
+[n S364 . . . . . . . . . ]
+"5862
+[v _ADCON0bits `VS364 ~T0 @X0 0 e@4034 ]
 "9122
 [v _TMR0ON `Vb ~T0 @X0 0 e@32431 ]
 "45 Timer_0.h
@@ -42,6 +77,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Interrupt_Init `(v ~T0 @X0 0 ef ]
 "40 Timer_0.h
 [v _TMR0_INIT `(v ~T0 @X0 0 ef ]
+"5818 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18f2550.h
+[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
+"5728
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"5664
+[s S356 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S356 . ADCS ACQT . ADFM ]
+"5670
+[s S357 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S357 . ADCS0 ADCS1 ADCS2 ACQT0 ACQT1 ACQT2 ]
+"5663
+[u S355 `S356 1 `S357 1 ]
+[n S355 . . . ]
+"5679
+[v _ADCON2bits `VS355 ~T0 @X0 0 e@4032 ]
 "32 DHT11Driver.h
 [v _InitDHT11Driver `(v ~T0 @X0 0 ef ]
 "3155 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18f2550.h
@@ -55,22 +105,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S228 . . . ]
 "3174
 [v _TRISAbits `VS228 ~T0 @X0 0 e@3986 ]
-"2522
-[s S188 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S188 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"2532
-[s S189 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S189 . INT0 INT1 INT2 . PGM PGC PGD ]
-"2541
-[s S190 :3 `uc 1 :1 `uc 1 ]
-[n S190 . . CCP2_PA2 ]
-"2521
-[u S187 `S188 1 `S189 1 `S190 1 ]
-[n S187 . . . . ]
-"2546
-[v _PORTBbits `VS187 ~T0 @X0 0 e@3969 ]
-"8668
-[v _LATA0 `Vb ~T0 @X0 0 e@31816 ]
+"8674
+[v _LATA3 `Vb ~T0 @X0 0 e@31819 ]
+"184 Main.c
+[v _TurnOffLights `(i ~T0 @X0 0 ef ]
+"32 SerialCOM.h
+[v _SerialInit `(v ~T0 @X0 0 ef ]
+"33
+[v _ReadFrame `(v ~T0 @X0 0 ef1`*uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3731,70 +3773,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _firstbyte
 :U ..
 -> -> 35 `ui `uc
--> -> 37 `ui `uc
+-> -> 38 `ui `uc
+-> -> 33 `ui `uc
 -> -> 64 `ui `uc
+-> -> 37 `ui `uc
 ..
 ]
-[; ;SerialCOM.h: 19: u8 firstbyte[] = {'#','%','@'};
+[; ;SerialCOM.h: 19: u8 firstbyte[] = {'#','&','!','@','%'};
 "20
-[v _splitbyte `uc ~T0 @X0 1 e ]
-[i _splitbyte
--> -> 43 `ui `uc
-]
-[; ;SerialCOM.h: 20: u8 splitbyte = '+';
-"21
 [v _endbyte `uc ~T0 @X0 1 e ]
 [i _endbyte
 -> -> 36 `ui `uc
 ]
-[; ;SerialCOM.h: 21: u8 endbyte = '$';
-"22
+[; ;SerialCOM.h: 20: u8 endbyte = '$';
+"21
 [v _counter `uc ~T0 @X0 1 e ]
 [i _counter
 -> -> 0 `i `uc
 ]
-[; ;SerialCOM.h: 22: u8 counter = 0;
-[; ;SerialCOM.h: 24: extern u8 RecievedData[15];
-"28
-[v _firstvalue `uc ~T0 @X0 1 e ]
-[i _firstvalue
--> -> 0 `i `uc
+[; ;SerialCOM.h: 21: u8 counter = 0;
+"23
+[v _light `uc ~T0 @X0 1 e ]
+[i _light
+-> -> 76 `i `uc
 ]
-[; ;SerialCOM.h: 28: u8 firstvalue=0;
-"29
-[v _firstvaluespaces `uc ~T0 @X0 1 e ]
-[i _firstvaluespaces
--> -> 0 `i `uc
+[; ;SerialCOM.h: 23: u8 light= 0x4C;
+"24
+[v _fan `uc ~T0 @X0 1 e ]
+[i _fan
+-> -> 70 `i `uc
 ]
-[; ;SerialCOM.h: 29: u8 firstvaluespaces = 0;
-"31
-[v _secondvalue `uc ~T0 @X0 1 e ]
-[i _secondvalue
--> -> 0 `i `uc
-]
-[; ;SerialCOM.h: 31: u8 secondvalue=0;
-"32
-[v _secondvaluespaces `uc ~T0 @X0 1 e ]
-[i _secondvaluespaces
--> -> 0 `i `uc
-]
-[; ;SerialCOM.h: 32: u8 secondvaluespaces=0;
-"33
-[v _temp `uc ~T0 @X0 -> 6 `i e ]
-[; ;SerialCOM.h: 33: u8 temp[6];
-"35
-[v _f_slave1 `uc ~T0 @X0 1 e ]
-[; ;SerialCOM.h: 35: u8 f_slave1;
-"36
-[v _f_slave2 `uc ~T0 @X0 1 e ]
-[; ;SerialCOM.h: 36: u8 f_slave2;
-[; ;SerialCOM.h: 40: void SerialInit(void);
-"84
+[; ;SerialCOM.h: 24: u8 fan= 0x46;
+[; ;SerialCOM.h: 26: extern u8 RecievedData[15];
+[; ;SerialCOM.h: 32: void SerialInit(void);
+[; ;SerialCOM.h: 33: void ReadFrame(u8 *pointer);
+"74
 [v __SPBRG `Cuc ~T0 @X0 1 s ]
 [i __SPBRG
--> -> 12 `i `uc
+-> -> 25 `i `uc
 ]
-[; ;SerialCOM.h: 84: static const u8 _SPBRG = 12;
+[; ;SerialCOM.h: 74: static const u8 _SPBRG = 25;
 [; ;Timer_0.h: 40: void TMR0_INIT (void);
 [; ;Timer_0.h: 44: void TMR0_WRITE (u16 value);
 [; ;Timer_0.h: 45: void TMR0_WRITE_HIGH (u8 valorHigh);
@@ -3804,328 +3822,479 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PWM.h: 26: void SetPeriod();
 [; ;PWM.h: 28: void SetDutyCycle(u8);
 [; ;PWM.h: 32: void SetPWM(u8);
-"23 Main.c
-[v _MaxLightValue `uc ~T0 @X0 1 e ]
-[i _MaxLightValue
--> -> 1000 `i `uc
-]
-[; ;Main.c: 23: u8 MaxLightValue = 1000;
-"24
+"24 Main.c
 [v _MinLightValue `uc ~T0 @X0 1 e ]
 [i _MinLightValue
--> -> 200 `i `uc
+-> -> 80 `i `uc
 ]
-[; ;Main.c: 24: u8 MinLightValue = 200;
-"30
+[; ;Main.c: 24: u8 MinLightValue = 80;
+"32
 [v _state `E3751 ~T0 @X0 1 e ]
 [i _state
 . `E3751 0
 ]
-[; ;Main.c: 30: DHT_StateMachine1 state = _Idle;
-"31
+[; ;Main.c: 32: DHT_StateMachine1 state = _Idle;
+"33
 [v _TimerCounter `uc ~T0 @X0 1 e ]
 [i _TimerCounter
 -> -> 0 `i `uc
 ]
-[; ;Main.c: 31: u8 TimerCounter=0;
-"32
-[v _dummy `uc ~T0 @X0 1 e ]
-[; ;Main.c: 32: u8 dummy;
-"35
+[; ;Main.c: 33: u8 TimerCounter=0;
+"34
+[v _TimerUser `uc ~T0 @X0 1 e ]
+[i _TimerUser
+-> -> 0 `i `uc
+]
+[; ;Main.c: 34: u8 TimerUser=0;
+"37
 [v _LightValue `us ~T0 @X0 1 e ]
 [i _LightValue
 -> -> 0 `i `us
 ]
-[; ;Main.c: 35: u16 LightValue=0;
-"36
+[; ;Main.c: 37: u16 LightValue=0;
+"38
 [v _serialcount `uc ~T0 @X0 1 e ]
-[; ;Main.c: 36: u8 serialcount;
-"37
+[; ;Main.c: 38: u8 serialcount;
+"39
 [v _RecievedData `uc ~T0 @X0 -> 15 `i e ]
-[; ;Main.c: 37: u8 RecievedData[15];
-[; ;Main.c: 40: extern u8 f_frameready;
+[; ;Main.c: 39: u8 RecievedData[15];
+"40
+[v _actualtemperature `uc ~T0 @X0 1 e ]
+[; ;Main.c: 40: u8 actualtemperature;
+"41
+[v _actualhumidity `uc ~T0 @X0 1 e ]
+[; ;Main.c: 41: u8 actualhumidity;
+"42
+[v _optimaltemperature `uc ~T0 @X0 1 e ]
+[; ;Main.c: 42: u8 optimaltemperature;
 "43
-[v _Light_f `b ~T0 @X0 1 e ]
-[; ;Main.c: 43: bit Light_f;
-"44
-[v _Door_f `b ~T0 @X0 1 e ]
-[; ;Main.c: 44: bit Door_f;
-"45
-[v _Night_f `b ~T0 @X0 1 e ]
-[; ;Main.c: 45: bit Night_f;
+[v _optimalhumidity `uc ~T0 @X0 1 e ]
+[; ;Main.c: 43: u8 optimalhumidity;
 "46
-[v _f_SSPReady `b ~T0 @X0 1 e ]
-[; ;Main.c: 46: bit f_SSPReady;
+[v _lightperday `us ~T0 @X0 1 e ]
+[i _lightperday
+-> -> 1435 `i `us
+]
+[; ;Main.c: 46: u16 lightperday = 1435;
 "47
-[v _f_Send2Bytes `b ~T0 @X0 1 e ]
-[; ;Main.c: 47: bit f_Send2Bytes;
+[v _lightcounter `us ~T0 @X0 1 e ]
+[i _lightcounter
+-> -> 0 `i `us
+]
+[; ;Main.c: 47: u16 lightcounter = 0;
 "48
+[v _totaldaytime `us ~T0 @X0 1 e ]
+[i _totaldaytime
+-> -> 1440 `i `us
+]
+[; ;Main.c: 48: u16 totaldaytime = 1440;
+"49
+[v _actualtime `us ~T0 @X0 1 e ]
+[i _actualtime
+-> -> 0 `i `us
+]
+[; ;Main.c: 49: u16 actualtime = 0;
+"50
+[v _timetostartlight `us ~T0 @X0 1 e ]
+[; ;Main.c: 50: u16 timetostartlight;
+[; ;Main.c: 53: extern u8 f_frameready;
+"56
+[v _Light_f `b ~T0 @X0 1 e ]
+[; ;Main.c: 56: bit Light_f;
+"57
+[v _Door_f `b ~T0 @X0 1 e ]
+[; ;Main.c: 57: bit Door_f;
+"58
+[v _Night_f `b ~T0 @X0 1 e ]
+[; ;Main.c: 58: bit Night_f;
+"59
+[v _f_SSPReady `b ~T0 @X0 1 e ]
+[; ;Main.c: 59: bit f_SSPReady;
+"60
+[v _f_Send2Bytes `b ~T0 @X0 1 e ]
+[; ;Main.c: 60: bit f_Send2Bytes;
+"61
 [v _f_SendByte `b ~T0 @X0 1 e ]
-[; ;Main.c: 48: bit f_SendByte;
-[v F3841 `(v ~T0 @X0 1 tf ]
-"51
-[v _HighISR `IHF3841 ~T0 @X0 1 e ]
+[; ;Main.c: 61: bit f_SendByte;
+"62
+[v _lightstate `b ~T0 @X0 1 e ]
+[; ;Main.c: 62: bit lightstate;
+[v F3846 `(v ~T0 @X0 1 tf ]
+"69
+[v _HighISR `IHF3846 ~T0 @X0 1 e ]
 {
-[; ;Main.c: 51: void interrupt high_priority HighISR (void){
+[; ;Main.c: 69: void interrupt high_priority HighISR (void){
 [e :U _HighISR ]
 [f ]
-[; ;Main.c: 54: if(INT2IF){
-"54
+[; ;Main.c: 72: if(INT2IF){
+"72
 [e $ ! _INT2IF 468  ]
 {
-[; ;Main.c: 55: INT2IF=0;
-"55
-[e = _INT2IF -> -> 0 `i `b ]
-"69
-}
-[e :U 468 ]
-[; ;Main.c: 69: }
-[; ;Main.c: 71: if((RCIF && RCIE))
-"71
-[e $ ! && _RCIF _RCIE 469  ]
-[; ;Main.c: 72: {
-"72
-{
-[; ;Main.c: 73: RCIF=0;
+[; ;Main.c: 73: INT2IF=0;
 "73
-[e = _RCIF -> -> 0 `i `b ]
-[; ;Main.c: 74: if(RCREG!='\n' && RCREG!=0xea)
+[e = _INT2IF -> -> 0 `i `b ]
+[; ;Main.c: 74: if(Door_f){
 "74
-[e $ ! && != -> _RCREG `ui -> 10 `ui != -> _RCREG `i -> 234 `i 470  ]
-[; ;Main.c: 75: {
+[e $ ! _Door_f 469  ]
+{
+[; ;Main.c: 75: INTEDG2=1U;
 "75
-{
-[; ;Main.c: 76: RecievedData[serialcount]=RCREG;
+[e = _INTEDG2 -> -> 1 `ui `b ]
+[; ;Main.c: 76: Door_f=0;
 "76
-[e = *U + &U _RecievedData * -> _serialcount `ux -> -> # *U &U _RecievedData `ui `ux _RCREG ]
-[; ;Main.c: 77: serialcount++;
+[e = _Door_f -> -> 0 `i `b ]
 "77
-[e ++ _serialcount -> -> 1 `i `uc ]
-"78
 }
-[e :U 470 ]
-[; ;Main.c: 78: }
-[; ;Main.c: 79: if(RCREG==0x24)
-"79
-[e $ ! == -> _RCREG `i -> 36 `i 471  ]
-[; ;Main.c: 80: {
-"80
+[; ;Main.c: 77: }
+[e $U 470  ]
+"78
+[e :U 469 ]
+[; ;Main.c: 78: else{
 {
-[; ;Main.c: 81: serialcount=0;
+[; ;Main.c: 79: TurnOnLights();
+"79
+[e ( _TurnOnLights ..  ]
+[; ;Main.c: 80: lightstate=1;
+"80
+[e = _lightstate -> -> 1 `i `b ]
+[; ;Main.c: 81: INTEDG2=0U;
 "81
-[e = _serialcount -> -> 0 `i `uc ]
-[; ;Main.c: 82: f_frameready=1;
+[e = _INTEDG2 -> -> 0 `ui `b ]
+[; ;Main.c: 82: Door_f=1;
 "82
-[e = _f_frameready -> -> 1 `i `uc ]
+[e = _Door_f -> -> 1 `i `b ]
 "83
 }
-[e :U 471 ]
+[e :U 470 ]
 "84
 }
-[e :U 469 ]
+[e :U 468 ]
 [; ;Main.c: 83: }
 [; ;Main.c: 84: }
-[; ;Main.c: 86: if(ADIF){
-"86
-[e $ ! _ADIF 472  ]
-{
-[; ;Main.c: 87: ADIF=0;
+[; ;Main.c: 87: if((RCIF && RCIE))
 "87
-[e = _ADIF -> -> 0 `i `b ]
-[; ;Main.c: 88: if((ADRES>=MaxLightValue) && (Light_f==1)){
+[e $ ! && _RCIF _RCIE 471  ]
+[; ;Main.c: 88: {
 "88
-[e $ ! && >= -> _ADRES `ui -> _MaxLightValue `ui == -> _Light_f `i -> 1 `i 473  ]
 {
-[; ;Main.c: 90: dummy++;
+[; ;Main.c: 89: RCIF=0;
+"89
+[e = _RCIF -> -> 0 `i `b ]
+[; ;Main.c: 90: if(RCREG!='\n' && RCREG!=0xea)
 "90
-[e ++ _dummy -> -> 1 `i `uc ]
+[e $ ! && != -> _RCREG `ui -> 10 `ui != -> _RCREG `i -> 234 `i 472  ]
+[; ;Main.c: 91: {
 "91
-}
-[; ;Main.c: 91: }
-[e $U 474  ]
+{
+[; ;Main.c: 92: RecievedData[serialcount]=RCREG;
 "92
-[e :U 473 ]
-[; ;Main.c: 92: else if ((ADRES>=MaxLightValue) && (Light_f == 0)){
-[e $ ! && >= -> _ADRES `ui -> _MaxLightValue `ui == -> _Light_f `i -> 0 `i 475  ]
-{
-[; ;Main.c: 94: dummy++;
+[e = *U + &U _RecievedData * -> _serialcount `ux -> -> # *U &U _RecievedData `ui `ux _RCREG ]
+[; ;Main.c: 93: serialcount++;
+"93
+[e ++ _serialcount -> -> 1 `i `uc ]
 "94
-[e ++ _dummy -> -> 1 `i `uc ]
-"95
-}
-[; ;Main.c: 95: }
-[e $U 476  ]
-"96
-[e :U 475 ]
-[; ;Main.c: 96: else if ((ADRES <= MinLightValue) && (Light_f ==1)){
-[e $ ! && <= -> _ADRES `ui -> _MinLightValue `ui == -> _Light_f `i -> 1 `i 477  ]
-{
-[; ;Main.c: 98: dummy++;
-"98
-[e ++ _dummy -> -> 1 `i `uc ]
-"99
-}
-[; ;Main.c: 99: }
-[e $U 478  ]
-"100
-[e :U 477 ]
-[; ;Main.c: 100: else if ((ADRES <= MinLightValue) && (Light_f ==1)){
-[e $ ! && <= -> _ADRES `ui -> _MinLightValue `ui == -> _Light_f `i -> 1 `i 479  ]
-{
-[; ;Main.c: 102: dummy++;
-"102
-[e ++ _dummy -> -> 1 `i `uc ]
-"103
-}
-[; ;Main.c: 103: }
-[e $U 480  ]
-"104
-[e :U 479 ]
-[; ;Main.c: 104: else{
-{
-[; ;Main.c: 105: dummy++;
-"105
-[e ++ _dummy -> -> 1 `i `uc ]
-"107
-}
-[e :U 480 ]
-[e :U 478 ]
-[e :U 476 ]
-[e :U 474 ]
-"108
 }
 [e :U 472 ]
-[; ;Main.c: 107: }
+[; ;Main.c: 94: }
+[; ;Main.c: 95: if(RCREG==0x24)
+"95
+[e $ ! == -> _RCREG `i -> 36 `i 473  ]
+[; ;Main.c: 96: {
+"96
+{
+[; ;Main.c: 97: serialcount=0;
+"97
+[e = _serialcount -> -> 0 `i `uc ]
+[; ;Main.c: 98: f_frameready=1;
+"98
+[e = _f_frameready -> -> 1 `i `uc ]
+"99
+}
+[e :U 473 ]
+"100
+}
+[e :U 471 ]
+[; ;Main.c: 99: }
+[; ;Main.c: 100: }
+[; ;Main.c: 103: if(ADIF){
+"103
+[e $ ! _ADIF 474  ]
+{
+[; ;Main.c: 104: ADIF=0;
+"104
+[e = _ADIF -> -> 0 `i `b ]
+[; ;Main.c: 105: if(ADRES<=MinLightValue){
+"105
+[e $ ! <= -> _ADRES `ui -> _MinLightValue `ui 475  ]
+{
+[; ;Main.c: 106: lightcounter++;
+"106
+[e ++ _lightcounter -> -> 1 `i `us ]
+[; ;Main.c: 107: Light_f=0;
+"107
+[e = _Light_f -> -> 0 `i `b ]
+"108
+}
+[e :U 475 ]
 [; ;Main.c: 108: }
-[; ;Main.c: 111: if(TMR0IF){
+[; ;Main.c: 109: if(ADRES>MinLightValue ){
+"109
+[e $ ! > -> _ADRES `ui -> _MinLightValue `ui 476  ]
+{
+[; ;Main.c: 110: if(lightcounter<=lightperday && actualtime>timetostartlight ){
+"110
+[e $ ! && <= -> _lightcounter `ui -> _lightperday `ui > -> _actualtime `ui -> _timetostartlight `ui 477  ]
+{
+[; ;Main.c: 111: Light_f=1;
 "111
-[e $ ! _TMR0IF 481  ]
-{
-[; ;Main.c: 113: TMR0IF=0;
+[e = _Light_f -> -> 1 `i `b ]
+[; ;Main.c: 112: lightcounter++;
+"112
+[e ++ _lightcounter -> -> 1 `i `us ]
 "113
-[e = _TMR0IF -> -> 0 `i `b ]
-[; ;Main.c: 114: if(TimerCounter<2) TimerCounter++;
+}
+[; ;Main.c: 113: }
+[e $U 478  ]
 "114
-[e $ ! < -> _TimerCounter `i -> 2 `i 482  ]
-[e ++ _TimerCounter -> -> 1 `i `uc ]
-[e $U 483  ]
-"115
-[e :U 482 ]
-[; ;Main.c: 115: else{
+[e :U 477 ]
+[; ;Main.c: 114: else{
 {
-[; ;Main.c: 116: TMR0ON = 0;
+[; ;Main.c: 115: Light_f=0;
+"115
+[e = _Light_f -> -> 0 `i `b ]
 "116
-[e = _TMR0ON -> -> 0 `i `b ]
-[; ;Main.c: 117: DHT_StateMachine[_FirstStateRequest]();
+}
+[e :U 478 ]
 "117
-[e ( *U *U + &U _DHT_StateMachine * -> . `E3751 1 `ux -> -> # *U &U _DHT_StateMachine `ui `ux ..  ]
-[; ;Main.c: 118: TimerCounter=0;
-"118
-[e = _TimerCounter -> -> 0 `i `uc ]
+}
+[e :U 476 ]
 "119
 }
-[e :U 483 ]
+[e :U 474 ]
+[; ;Main.c: 116: }
+[; ;Main.c: 117: }
 [; ;Main.c: 119: }
-[; ;Main.c: 120: TMR0_WRITE_HIGH(0xF0);
-"120
-[e ( _TMR0_WRITE_HIGH (1 -> -> 240 `i `uc ]
-[; ;Main.c: 121: TMR0_WRITE_LOW(0xBD);
+[; ;Main.c: 121: if(TMR0IF){
 "121
-[e ( _TMR0_WRITE_LOW (1 -> -> 189 `i `uc ]
-[; ;Main.c: 122: TMR0ON = 1;
-"122
-[e = _TMR0ON -> -> 1 `i `b ]
-"123
-}
-[e :U 481 ]
-[; ;Main.c: 123: }
-[; ;Main.c: 125: if (CCP1IF){
-"125
-[e $ ! _CCP1IF 484  ]
+[e $ ! _TMR0IF 479  ]
 {
-[; ;Main.c: 126: CCP1IF=0;
+[; ;Main.c: 123: TMR0IF=0;
+"123
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;Main.c: 124: TimerCounter++;
+"124
+[e ++ _TimerCounter -> -> 1 `i `uc ]
+[; ;Main.c: 125: if (TimerCounter==1) TXREG='%';
+"125
+[e $ ! == -> _TimerCounter `i -> 1 `i 480  ]
+[e = _TXREG -> -> 37 `ui `uc ]
+[e :U 480 ]
+[; ;Main.c: 126: if (TimerCounter==2) TXREG='F';
 "126
-[e = _CCP1IF -> -> 0 `i `b ]
-[; ;Main.c: 127: (*DHT_StateMachine[state])();
+[e $ ! == -> _TimerCounter `i -> 2 `i 481  ]
+[e = _TXREG -> -> 70 `ui `uc ]
+[e :U 481 ]
+[; ;Main.c: 127: if (TimerCounter==3) TXREG='$';
 "127
-[e ( *U *U + &U _DHT_StateMachine * -> _state `ux -> -> # *U &U _DHT_StateMachine `ui `ux ..  ]
-"128
+[e $ ! == -> _TimerCounter `i -> 3 `i 482  ]
+[e = _TXREG -> -> 36 `ui `uc ]
+[e :U 482 ]
+[; ;Main.c: 129: if (TimerUser!=0)TimerUser--;
+"129
+[e $ ! != -> _TimerUser `i -> 0 `i 483  ]
+[e -- _TimerUser -> -> 1 `i `uc ]
+[e :U 483 ]
+[; ;Main.c: 130: if (TimerCounter==3){
+"130
+[e $ ! == -> _TimerCounter `i -> 3 `i 484  ]
+{
+[; ;Main.c: 131: TimerCounter=0;
+"131
+[e = _TimerCounter -> -> 0 `i `uc ]
+[; ;Main.c: 132: actualtime++;
+"132
+[e ++ _actualtime -> -> 1 `i `us ]
+[; ;Main.c: 134: ADCON0bits.GO=1;
+"134
+[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
+[; ;Main.c: 136: DHT_StateMachine[_FirstStateRequest]();
+"136
+[e ( *U *U + &U _DHT_StateMachine * -> . `E3751 1 `ux -> -> # *U &U _DHT_StateMachine `ui `ux ..  ]
+[; ;Main.c: 137: if (actualtime==totaldaytime) {
+"137
+[e $ ! == -> _actualtime `ui -> _totaldaytime `ui 485  ]
+{
+[; ;Main.c: 139: actualtime=0;
+"139
+[e = _actualtime -> -> 0 `i `us ]
+[; ;Main.c: 140: lightcounter=0;
+"140
+[e = _lightcounter -> -> 0 `i `us ]
+[; ;Main.c: 142: timetostartlight=totaldaytime-lightperday;
+"142
+[e = _timetostartlight -> - -> _totaldaytime `ui -> _lightperday `ui `us ]
+"143
+}
+[e :U 485 ]
+"144
 }
 [e :U 484 ]
-[; ;Main.c: 128: }
-[; ;Main.c: 129: }
-"129
-[e :UE 467 ]
-}
-"133
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[; ;Main.c: 133: void main(void) {
-[e :U _main ]
-[f ]
-[; ;Main.c: 136: OSCCON=0b01101100;
-"136
-[e = _OSCCON -> -> 108 `i `uc ]
-[; ;Main.c: 137: Interrupt_Init();
-"137
-[e ( _Interrupt_Init ..  ]
-[; ;Main.c: 140: TMR0_INIT();
-"140
-[e ( _TMR0_INIT ..  ]
-[; ;Main.c: 141: TMR0ON = 0;
-"141
+[; ;Main.c: 143: }
+[; ;Main.c: 144: }
+[; ;Main.c: 145: TMR0ON = 0;
+"145
 [e = _TMR0ON -> -> 0 `i `b ]
-[; ;Main.c: 142: TMR0_WRITE_HIGH(0xF0);
-"142
-[e ( _TMR0_WRITE_HIGH (1 -> -> 240 `i `uc ]
-[; ;Main.c: 143: TMR0_WRITE_LOW(0xBD);
-"143
-[e ( _TMR0_WRITE_LOW (1 -> -> 189 `i `uc ]
-[; ;Main.c: 144: TMR0ON = 1;
-"144
-[e = _TMR0ON -> -> 1 `i `b ]
-[; ;Main.c: 147: InitDHT11Driver();
+[; ;Main.c: 146: TMR0_WRITE_HIGH(0xB);
+"146
+[e ( _TMR0_WRITE_HIGH (1 -> -> 11 `i `uc ]
+[; ;Main.c: 147: TMR0_WRITE_LOW(0xD0);
 "147
-[e ( _InitDHT11Driver ..  ]
-[; ;Main.c: 150: (TRISAbits.TRISA0 = 0);
-"150
-[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-[; ;Main.c: 152: while(1){
+[e ( _TMR0_WRITE_LOW (1 -> -> 208 `i `uc ]
+[; ;Main.c: 148: TMR0ON = 1;
+"148
+[e = _TMR0ON -> -> 1 `i `b ]
+"149
+}
+[e :U 479 ]
+[; ;Main.c: 149: }
+[; ;Main.c: 152: if (CCP1IF){
 "152
-[e :U 487 ]
+[e $ ! _CCP1IF 486  ]
 {
-[; ;Main.c: 153: if(PORTBbits.RB2){
+[; ;Main.c: 153: CCP1IF=0;
 "153
-[e $ ! != -> . . _PORTBbits 0 2 `i -> -> -> 0 `i `Vuc `i 489  ]
-{
-[; ;Main.c: 154: (LATA0=1U);
+[e = _CCP1IF -> -> 0 `i `b ]
+[; ;Main.c: 154: DHT_StateMachine[state]();
 "154
-[e = _LATA0 -> -> 1 `ui `b ]
+[e ( *U *U + &U _DHT_StateMachine * -> _state `ux -> -> # *U &U _DHT_StateMachine `ui `ux ..  ]
 "155
 }
+[e :U 486 ]
 [; ;Main.c: 155: }
-[e $U 490  ]
+[; ;Main.c: 156: }
 "156
-[e :U 489 ]
-[; ;Main.c: 156: else if(!PORTBbits.RB2) {
-[e $ ! ! != -> . . _PORTBbits 0 2 `i -> -> -> 0 `i `Vuc `i 491  ]
+[e :UE 467 ]
+}
+"159
+[v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;Main.c: 157: (LATA0=0U);
-"157
-[e = _LATA0 -> -> 0 `ui `b ]
-"158
+[; ;Main.c: 159: void main(void) {
+[e :U _main ]
+[f ]
+[; ;Main.c: 162: OSCCON=0b01101100;
+"162
+[e = _OSCCON -> -> 108 `i `uc ]
+[; ;Main.c: 163: Interrupt_Init();
+"163
+[e ( _Interrupt_Init ..  ]
+[; ;Main.c: 166: TMR0_INIT();
+"166
+[e ( _TMR0_INIT ..  ]
+[; ;Main.c: 167: TMR0ON = 0;
+"167
+[e = _TMR0ON -> -> 0 `i `b ]
+[; ;Main.c: 168: TMR0_WRITE_HIGH(0xB);
+"168
+[e ( _TMR0_WRITE_HIGH (1 -> -> 11 `i `uc ]
+[; ;Main.c: 169: TMR0_WRITE_LOW(0xD0);
+"169
+[e ( _TMR0_WRITE_LOW (1 -> -> 208 `i `uc ]
+[; ;Main.c: 170: TMR0ON = 1;
+"170
+[e = _TMR0ON -> -> 1 `i `b ]
+[; ;Main.c: 173: ADCON0=0b00001001;
+"173
+[e = _ADCON0 -> -> 9 `i `uc ]
+[; ;Main.c: 174: ADCON1=0b00001100;
+"174
+[e = _ADCON1 -> -> 12 `i `uc ]
+[; ;Main.c: 175: ADCON2bits.ADFM=1;
+"175
+[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
+[; ;Main.c: 178: InitDHT11Driver();
+"178
+[e ( _InitDHT11Driver ..  ]
+[; ;Main.c: 181: (TRISAbits.TRISA3 = 0);
+"181
+[e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
+[; ;Main.c: 182: (LATA3=1U);
+"182
+[e = _LATA3 -> -> 1 `ui `b ]
+[; ;Main.c: 184: TurnOffLights();
+"184
+[e ( _TurnOffLights ..  ]
+[; ;Main.c: 185: lightstate=1;
+"185
+[e = _lightstate -> -> 1 `i `b ]
+[; ;Main.c: 186: timetostartlight=totaldaytime-lightperday;
+"186
+[e = _timetostartlight -> - -> _totaldaytime `ui -> _lightperday `ui `us ]
+[; ;Main.c: 189: SerialInit();
+"189
+[e ( _SerialInit ..  ]
+[; ;Main.c: 191: while(1){
+"191
+[e :U 489 ]
+{
+[; ;Main.c: 193: if(TimerUser==0){
+"193
+[e $ ! == -> _TimerUser `i -> 0 `i 491  ]
+{
+[; ;Main.c: 195: if(actualtime>timetostartlight){
+"195
+[e $ ! > -> _actualtime `ui -> _timetostartlight `ui 492  ]
+{
+[; ;Main.c: 196: if(Light_f==0){
+"196
+[e $ ! == -> _Light_f `i -> 0 `i 493  ]
+{
+[; ;Main.c: 197: TurnOffLights();
+"197
+[e ( _TurnOffLights ..  ]
+"198
+}
+[; ;Main.c: 198: }
+[e $U 494  ]
+"199
+[e :U 493 ]
+[; ;Main.c: 199: else if (Light_f==1){
+[e $ ! == -> _Light_f `i -> 1 `i 495  ]
+{
+[; ;Main.c: 200: TurnOnLights();
+"200
+[e ( _TurnOnLights ..  ]
+"201
+}
+[e :U 495 ]
+"202
+[e :U 494 ]
+}
+[e :U 492 ]
+"204
 }
 [e :U 491 ]
-"160
-[e :U 490 ]
+[; ;Main.c: 201: }
+[; ;Main.c: 202: }
+[; ;Main.c: 204: }
+[; ;Main.c: 205: if(f_frameready){
+"205
+[e $ ! != -> _f_frameready `i -> -> -> 0 `i `uc `i 496  ]
+{
+[; ;Main.c: 206: ReadFrame(RecievedData);
+"206
+[e ( _ReadFrame (1 &U _RecievedData ]
+"207
 }
-[e :U 486 ]
-"152
-[e $U 487  ]
+[e :U 496 ]
+"208
+}
 [e :U 488 ]
-[; ;Main.c: 158: }
-[; ;Main.c: 160: }
-[; ;Main.c: 162: }
-"162
-[e :UE 485 ]
+"191
+[e $U 489  ]
+[e :U 490 ]
+[; ;Main.c: 207: }
+[; ;Main.c: 208: }
+[; ;Main.c: 210: }
+"210
+[e :UE 487 ]
 }

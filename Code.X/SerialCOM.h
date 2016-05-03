@@ -16,31 +16,21 @@
 
 u8 frame;
 u8 f_frameready;
-u8 firstbyte[] = {'#','%','@'};
-u8 splitbyte = '+';
+u8 firstbyte[] = {'#','&','!','@','%'};
 u8 endbyte = '$';
 u8 counter = 0;
+
+u8 light=   0x4C;       //L
+u8 fan=     0x46;       //F
 
 extern u8 RecievedData[15];
 //extern u16 value[2];
 
 
-u8 firstvalue=0;
-u8 firstvaluespaces = 0;
-
-u8 secondvalue=0;
-u8 secondvaluespaces=0;
-u8 temp[6];
-
-u8 f_slave1;
-u8 f_slave2;
-
 //Function prototypes
 
 void SerialInit(void);
-u16* ReadFrame(u8 *pointer);
-
-
+void ReadFrame(u8 *pointer);
 
 //
 //                              TXSTA
@@ -81,7 +71,7 @@ u16* ReadFrame(u8 *pointer);
 //(bit3) ON if 16-bit baud rate (SPBRGH and SPBRG)
 #define _BRG16 OFF
 
-static const u8 _SPBRG = 12;
+static const u8 _SPBRG = 25;
 
 
 

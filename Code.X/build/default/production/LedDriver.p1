@@ -3557,31 +3557,56 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LedDriver.h: 24: void TurnOnLights();
 [; ;LedDriver.h: 25: void TurnOffLights();
 "3 LedDriver.c
+[v _lightstate_f `b ~T0 @X0 1 e ]
+[; ;LedDriver.c: 3: bit lightstate_f;
+"5
 [v _TurnOffLights `(v ~T0 @X0 1 ef ]
 {
-[; ;LedDriver.c: 3: void TurnOffLights (void){
+[; ;LedDriver.c: 5: void TurnOffLights (void){
 [e :U _TurnOffLights ]
 [f ]
-[; ;LedDriver.c: 4: StopPWM();
-"4
-[e ( _StopPWM ..  ]
-[; ;LedDriver.c: 5: }
-"5
-[e :UE 467 ]
-}
-"7
-[v _TurnOnLights `(v ~T0 @X0 1 ef ]
+[; ;LedDriver.c: 6: if(lightstate_f){
+"6
+[e $ ! _lightstate_f 468  ]
 {
-[; ;LedDriver.c: 7: void TurnOnLights(){
-[e :U _TurnOnLights ]
-[f ]
-[; ;LedDriver.c: 8: SetPWM(50);
+[; ;LedDriver.c: 7: StopPWM();
+"7
+[e ( _StopPWM ..  ]
+[; ;LedDriver.c: 8: lightstate_f=0;
 "8
-[e ( _SetPWM (1 -> -> 50 `i `uc ]
-[; ;LedDriver.c: 9: StartPWM();
+[e = _lightstate_f -> -> 0 `i `b ]
 "9
-[e ( _StartPWM ..  ]
+}
+[e :U 468 ]
+[; ;LedDriver.c: 9: }
 [; ;LedDriver.c: 10: }
 "10
-[e :UE 468 ]
+[e :UE 467 ]
+}
+"12
+[v _TurnOnLights `(v ~T0 @X0 1 ef ]
+{
+[; ;LedDriver.c: 12: void TurnOnLights(){
+[e :U _TurnOnLights ]
+[f ]
+[; ;LedDriver.c: 13: if(!lightstate_f){
+"13
+[e $ ! ! _lightstate_f 470  ]
+{
+[; ;LedDriver.c: 14: SetPWM(50);
+"14
+[e ( _SetPWM (1 -> -> 50 `i `uc ]
+[; ;LedDriver.c: 15: StartPWM();
+"15
+[e ( _StartPWM ..  ]
+[; ;LedDriver.c: 16: lightstate_f=1;
+"16
+[e = _lightstate_f -> -> 1 `i `b ]
+"17
+}
+[e :U 470 ]
+[; ;LedDriver.c: 17: }
+[; ;LedDriver.c: 18: }
+"18
+[e :UE 469 ]
 }

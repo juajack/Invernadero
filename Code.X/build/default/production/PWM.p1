@@ -3577,106 +3577,109 @@ Version 3.2 HI-TECH Software Intermediate Code
 "11
 [v _LSb `us ~T0 @X0 1 e ]
 [; ;PWM.c: 11: u16 LSb;
-"13
+"12
+[v _PWM `b ~T0 @X0 1 e ]
+[; ;PWM.c: 12: bit PWM;
+"14
 [v _PWMValue `us ~T0 @X0 1 e ]
-[; ;PWM.c: 13: u16 PWMValue;
-"16
+[; ;PWM.c: 14: u16 PWMValue;
+"17
 [v _StartPWM `(v ~T0 @X0 1 ef ]
 {
-[; ;PWM.c: 16: void StartPWM(){
+[; ;PWM.c: 17: void StartPWM(){
 [e :U _StartPWM ]
 [f ]
-[; ;PWM.c: 17: CCP2CON=0x0C;
-"17
-[e = _CCP2CON -> -> 12 `i `uc ]
-[; ;PWM.c: 18: T1OSCEN=1U;
+[; ;PWM.c: 18: CCP2CON=0x0C;
 "18
-[e = _T1OSCEN -> -> 1 `ui `b ]
-[; ;PWM.c: 19: }
+[e = _CCP2CON -> -> 12 `i `uc ]
+[; ;PWM.c: 19: T1OSCEN=1U;
 "19
+[e = _T1OSCEN -> -> 1 `ui `b ]
+[; ;PWM.c: 20: }
+"20
 [e :UE 467 ]
 }
-"21
+"22
 [v _StopPWM `(v ~T0 @X0 1 ef ]
 {
-[; ;PWM.c: 21: void StopPWM(){
+[; ;PWM.c: 22: void StopPWM(){
 [e :U _StopPWM ]
 [f ]
-[; ;PWM.c: 22: CCP2CON=0x00;
-"22
-[e = _CCP2CON -> -> 0 `i `uc ]
-[; ;PWM.c: 23: T1OSCEN=0U;
+[; ;PWM.c: 23: CCP2CON=0x00;
 "23
-[e = _T1OSCEN -> -> 0 `ui `b ]
-[; ;PWM.c: 24: (LATB3=0U);
+[e = _CCP2CON -> -> 0 `i `uc ]
+[; ;PWM.c: 24: T1OSCEN=0U;
 "24
-[e = _LATB3 -> -> 0 `ui `b ]
-[; ;PWM.c: 25: }
+[e = _T1OSCEN -> -> 0 `ui `b ]
+[; ;PWM.c: 25: (LATB3=0U);
 "25
+[e = _LATB3 -> -> 0 `ui `b ]
+[; ;PWM.c: 26: }
+"26
 [e :UE 468 ]
 }
-"27
+"28
 [v _SetPeriod `(v ~T0 @X0 1 ef ]
 {
-[; ;PWM.c: 27: void SetPeriod(){
+[; ;PWM.c: 28: void SetPeriod(){
 [e :U _SetPeriod ]
 [f ]
-[; ;PWM.c: 29: PR2=124;
-"29
-[e = _PR2 -> -> 124 `i `uc ]
-[; ;PWM.c: 30: }
+[; ;PWM.c: 30: PR2=124;
 "30
+[e = _PR2 -> -> 124 `i `uc ]
+[; ;PWM.c: 31: }
+"31
 [e :UE 469 ]
 }
-"32
+"33
 [v _SetDutyCycle `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;PWM.c: 32: void SetDutyCycle(u8 dutycycle){
+[; ;PWM.c: 33: void SetDutyCycle(u8 dutycycle){
 [e :U _SetDutyCycle ]
 [v _dutycycle `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;PWM.c: 33: PWMValue=((dutycycle)*470)/100;
-"33
-[e = _PWMValue -> / * -> _dutycycle `i -> 470 `i -> 100 `i `us ]
-[; ;PWM.c: 34: LSb=PWMValue&0x03;
+[; ;PWM.c: 34: PWMValue=((dutycycle)*470)/100;
 "34
-[e = _LSb -> & -> _PWMValue `ui -> -> 3 `i `ui `us ]
-[; ;PWM.c: 35: MSb=PWMValue>>2;
+[e = _PWMValue -> / * -> _dutycycle `i -> 470 `i -> 100 `i `us ]
+[; ;PWM.c: 35: LSb=PWMValue&0x03;
 "35
+[e = _LSb -> & -> _PWMValue `ui -> -> 3 `i `ui `us ]
+[; ;PWM.c: 36: MSb=PWMValue>>2;
+"36
 [e = _MSb -> >> -> _PWMValue `ui -> 2 `i `us ]
-[; ;PWM.c: 37: CCPR2L=MSb;
-"37
-[e = _CCPR2L -> _MSb `uc ]
-[; ;PWM.c: 38: CCP2CON=CCP2CON|(LSb<<4);
+[; ;PWM.c: 38: CCPR2L=MSb;
 "38
+[e = _CCPR2L -> _MSb `uc ]
+[; ;PWM.c: 39: CCP2CON=CCP2CON|(LSb<<4);
+"39
 [e = _CCP2CON -> | -> _CCP2CON `ui << -> _LSb `ui -> 4 `i `uc ]
-[; ;PWM.c: 41: }
-"41
+[; ;PWM.c: 42: }
+"42
 [e :UE 470 ]
 }
-"43
+"44
 [v _SetPWM `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;PWM.c: 43: void SetPWM(u8 dutycycle){
+[; ;PWM.c: 44: void SetPWM(u8 dutycycle){
 [e :U _SetPWM ]
 [v _dutycycle `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;PWM.c: 44: T2CON=0x00;
-"44
-[e = _T2CON -> -> 0 `i `uc ]
-[; ;PWM.c: 45: SetPeriod();
+[; ;PWM.c: 45: T2CON=0x00;
 "45
-[e ( _SetPeriod ..  ]
-[; ;PWM.c: 46: SetDutyCycle(dutycycle);
+[e = _T2CON -> -> 0 `i `uc ]
+[; ;PWM.c: 46: SetPeriod();
 "46
-[e ( _SetDutyCycle (1 _dutycycle ]
-[; ;PWM.c: 47: (TRISBbits.TRISB3 = 0);
+[e ( _SetPeriod ..  ]
+[; ;PWM.c: 47: SetDutyCycle(dutycycle);
 "47
-[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
-[; ;PWM.c: 48: T2CON=0b110;
+[e ( _SetDutyCycle (1 _dutycycle ]
+[; ;PWM.c: 48: (TRISBbits.TRISB3 = 0);
 "48
-[e = _T2CON -> -> 6 `i `uc ]
-[; ;PWM.c: 49: }
+[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
+[; ;PWM.c: 49: T2CON=0b110;
 "49
+[e = _T2CON -> -> 6 `i `uc ]
+[; ;PWM.c: 50: }
+"50
 [e :UE 471 ]
 }

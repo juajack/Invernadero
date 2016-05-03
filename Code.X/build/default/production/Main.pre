@@ -4748,31 +4748,21 @@ void Interrupt_Init(void);
 # 17 "SerialCOM.h"
 u8 frame;
 u8 f_frameready;
-u8 firstbyte[] = {'#','%','@'};
-u8 splitbyte = '+';
+u8 firstbyte[] = {'#','&','!','@','%'};
 u8 endbyte = '$';
 u8 counter = 0;
 
+u8 light= 0x4C;
+u8 fan= 0x46;
+
 extern u8 RecievedData[15];
 
-
-
-u8 firstvalue=0;
-u8 firstvaluespaces = 0;
-
-u8 secondvalue=0;
-u8 secondvaluespaces=0;
-u8 temp[6];
-
-u8 f_slave1;
-u8 f_slave2;
-
-
-
+# 32
 void SerialInit(void);
+void ReadFrame(u8 *pointer);
 
-# 84
-static const u8 _SPBRG = 12;
+# 74
+static const u8 _SPBRG = 25;
 
 # 40 "Timer_0.h"
 void TMR0_INIT (void);
@@ -4796,19 +4786,29 @@ void SetDutyCycle(u8);
 
 void SetPWM(u8);
 
-# 23 "Main.c"
-u8 MaxLightValue = 1000;
-u8 MinLightValue = 200;
+# 24 "Main.c"
+u8 MinLightValue = 80;
 
-# 30
+# 32
 DHT_StateMachine1 state = _Idle;
 u8 TimerCounter=0;
-u8 dummy;
+u8 TimerUser=0;
 
 
 u16 LightValue=0;
 u8 serialcount;
 u8 RecievedData[15];
+u8 actualtemperature;
+u8 actualhumidity;
+u8 optimaltemperature;
+u8 optimalhumidity;
+
+
+u16 lightperday = 1435;
+u16 lightcounter = 0;
+u16 totaldaytime = 1440;
+u16 actualtime = 0;
+u16 timetostartlight;
 
 
 extern u8 f_frameready;
@@ -4820,16 +4820,26 @@ bit Night_f;
 bit f_SSPReady;
 bit f_Send2Bytes;
 bit f_SendByte;
+bit lightstate;
 
-
+# 69
 void interrupt high_priority HighISR (void){
 
 
 if(INT2IF){
 INT2IF=0;
-
-# 69
+if(Door_f){
+INTEDG2=1U;
+Door_f=0;
 }
+else{
+TurnOnLights();
+lightstate=1;
+INTEDG2=0U;
+Door_f=1;
+}
+}
+
 
 if((RCIF && RCIE))
 {
@@ -4846,51 +4856,61 @@ f_frameready=1;
 }
 }
 
+
 if(ADIF){
 ADIF=0;
-if((ADRES>=MaxLightValue) && (Light_f==1)){
-
-dummy++;
+if(ADRES<=MinLightValue){
+lightcounter++;
+Light_f=0;
 }
-else if ((ADRES>=MaxLightValue) && (Light_f == 0)){
-
-dummy++;
-}
-else if ((ADRES <= MinLightValue) && (Light_f ==1)){
-
-dummy++;
-}
-else if ((ADRES <= MinLightValue) && (Light_f ==1)){
-
-dummy++;
+if(ADRES>MinLightValue ){
+if(lightcounter<=lightperday && actualtime>timetostartlight ){
+Light_f=1;
+lightcounter++;
 }
 else{
-dummy++;
-
+Light_f=0;
 }
 }
 
+}
 
 if(TMR0IF){
 
 TMR0IF=0;
-if(TimerCounter<2) TimerCounter++;
-else{
-TMR0ON = 0;
-DHT_StateMachine[_FirstStateRequest]();
+TimerCounter++;
+if (TimerCounter==1) TXREG='%';
+if (TimerCounter==2) TXREG='F';
+if (TimerCounter==3) TXREG='$';
+
+if (TimerUser!=0)TimerUser--;
+if (TimerCounter==3){
 TimerCounter=0;
+actualtime++;
+
+ADCON0bits.GO=1;
+
+DHT_StateMachine[_FirstStateRequest]();
+if (actualtime==totaldaytime) {
+
+actualtime=0;
+lightcounter=0;
+
+timetostartlight=totaldaytime-lightperday;
 }
-TMR0_WRITE_HIGH(0xF0);
-TMR0_WRITE_LOW(0xBD);
+}
+TMR0ON = 0;
+TMR0_WRITE_HIGH(0xB);
+TMR0_WRITE_LOW(0xD0);
 TMR0ON = 1;
 }
 
+
 if (CCP1IF){
 CCP1IF=0;
-(*DHT_StateMachine[state])();
+DHT_StateMachine[state]();
 }
 }
-
 
 
 void main(void) {
@@ -4902,24 +4922,46 @@ Interrupt_Init();
 
 TMR0_INIT();
 TMR0ON = 0;
-TMR0_WRITE_HIGH(0xF0);
-TMR0_WRITE_LOW(0xBD);
+TMR0_WRITE_HIGH(0xB);
+TMR0_WRITE_LOW(0xD0);
 TMR0ON = 1;
+
+
+ADCON0=0b00001001;
+ADCON1=0b00001100;
+ADCON2bits.ADFM=1;
 
 
 InitDHT11Driver();
 
 
-(TRISAbits.TRISA0 = 0);
+(TRISAbits.TRISA3 = 0);
+(LATA3=1U);
+
+TurnOffLights();
+lightstate=1;
+timetostartlight=totaldaytime-lightperday;
+
+
+SerialInit();
 
 while(1){
-if(PORTBbits.RB2){
-(LATA0=1U);
+
+if(TimerUser==0){
+
+if(actualtime>timetostartlight){
+if(Light_f==0){
+TurnOffLights();
 }
-else if(!PORTBbits.RB2) {
-(LATA0=0U);
+else if (Light_f==1){
+TurnOnLights();
+}
 }
 
+}
+if(f_frameready){
+ReadFrame(RecievedData);
+}
 }
 
 }
