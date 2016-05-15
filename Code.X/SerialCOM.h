@@ -16,8 +16,8 @@
 
 u8 frame;
 u8 f_frameready;
-u8 firstbyte[] = {'#','&','!','@','%'};
-u8 endbyte = '$';
+u8 firstbyte[] = {'O','&','N','@','W'};
+u8 endbyte = 'E';
 u8 counter = 0;
 
 u8 light=   0x4C;       //L

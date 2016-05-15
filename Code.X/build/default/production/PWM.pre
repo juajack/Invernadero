@@ -4675,7 +4675,7 @@ T1OSCEN=0U;
 
 void SetPeriod(){
 
-PR2=124;
+PR2=200;
 }
 
 void SetDutyCycle(u8 dutycycle){

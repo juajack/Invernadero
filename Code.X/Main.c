@@ -21,7 +21,7 @@
 /*      Constantst      */
 //Valores de iluminación a prueba 
 //u8 MaxLightValue = 70;
-u8 MinLightValue = 80;
+u8 MinLightValue = 40;
 #define FanPort     A
 #define FanPin      3
 #define DoorPort    B
@@ -92,7 +92,7 @@ void interrupt high_priority HighISR (void){
         RecievedData[serialcount]=RCREG;
         serialcount++;
         }
-        if(RCREG==0x24) //$
+        if(RCREG=='E') // endbyte
         {
             serialcount=0;
             f_frameready=1;
@@ -122,10 +122,14 @@ void interrupt high_priority HighISR (void){
         //Interrupt every 2 secs
         TMR0IF=0;
         TimerCounter++;
-        if (TimerCounter==1) TXREG='%';
-        if (TimerCounter==2) TXREG='F';
-        if (TimerCounter==3) TXREG='$';
-        
+        /*Probar la comunicación y las acciones que realiza al recibir Serial
+        if(TimerCounter==1 && actualtime==0)TXREG='W';
+        if(TimerCounter==2 && actualtime==0)TXREG='F';
+        if(TimerCounter==3 && actualtime==0)TXREG='E';
+        if(TimerCounter==1 && actualtime==1)TXREG='O';
+        if(TimerCounter==2 && actualtime==1)TXREG='F';
+        if(TimerCounter==3 && actualtime==1)TXREG='E';
+        */
         if (TimerUser!=0)TimerUser--;
         if (TimerCounter==3){      //1 min
             TimerCounter=0;
@@ -133,7 +137,7 @@ void interrupt high_priority HighISR (void){
             //RUN ADC
             ADCON0bits.GO=1;
             //RUN DHT
-            DHT_StateMachine[_FirstStateRequest]();
+            //DHT_StateMachine[_FirstStateRequest]();
             if (actualtime==totaldaytime) {
                 //Start Again all the values
                 actualtime=0;

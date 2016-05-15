@@ -3624,9 +3624,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PWM.c: 28: void SetPeriod(){
 [e :U _SetPeriod ]
 [f ]
-[; ;PWM.c: 30: PR2=124;
+[; ;PWM.c: 30: PR2=200;
 "30
-[e = _PR2 -> -> 124 `i `uc ]
+[e = _PR2 -> -> 200 `i `uc ]
 [; ;PWM.c: 31: }
 "31
 [e :UE 469 ]

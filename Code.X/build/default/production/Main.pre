@@ -4748,8 +4748,8 @@ void Interrupt_Init(void);
 # 17 "SerialCOM.h"
 u8 frame;
 u8 f_frameready;
-u8 firstbyte[] = {'#','&','!','@','%'};
-u8 endbyte = '$';
+u8 firstbyte[] = {'O','&','N','@','W'};
+u8 endbyte = 'E';
 u8 counter = 0;
 
 u8 light= 0x4C;
@@ -4787,7 +4787,7 @@ void SetDutyCycle(u8);
 void SetPWM(u8);
 
 # 24 "Main.c"
-u8 MinLightValue = 80;
+u8 MinLightValue = 40;
 
 # 32
 DHT_StateMachine1 state = _Idle;
@@ -4849,7 +4849,7 @@ if(RCREG!='\n' && RCREG!=0xea)
 RecievedData[serialcount]=RCREG;
 serialcount++;
 }
-if(RCREG==0x24)
+if(RCREG=='E')
 {
 serialcount=0;
 f_frameready=1;
@@ -4879,10 +4879,8 @@ if(TMR0IF){
 
 TMR0IF=0;
 TimerCounter++;
-if (TimerCounter==1) TXREG='%';
-if (TimerCounter==2) TXREG='F';
-if (TimerCounter==3) TXREG='$';
 
+# 133
 if (TimerUser!=0)TimerUser--;
 if (TimerCounter==3){
 TimerCounter=0;
@@ -4890,7 +4888,7 @@ actualtime++;
 
 ADCON0bits.GO=1;
 
-DHT_StateMachine[_FirstStateRequest]();
+
 if (actualtime==totaldaytime) {
 
 actualtime=0;

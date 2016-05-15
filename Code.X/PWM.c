@@ -27,7 +27,7 @@ void StopPWM(){
 
 void SetPeriod(){
     //Read the section 15.4 Equation 15-1 from the PIC18 Datasheet
-    PR2=124; 
+    PR2=200; 
 }
 
 void SetDutyCycle(u8 dutycycle){

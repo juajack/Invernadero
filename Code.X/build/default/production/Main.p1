@@ -31,8 +31,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADRES `Vus ~T0 @X0 0 e@4035 ]
 "9118
 [v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
-"4791
-[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
 "5824
 [s S365 :1 `uc 1 :1 `uc 1 ]
 [n S365 . . GO_NOT_DONE ]
@@ -107,7 +105,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISAbits `VS228 ~T0 @X0 0 e@3986 ]
 "8674
 [v _LATA3 `Vb ~T0 @X0 0 e@31819 ]
-"184 Main.c
+"188 Main.c
 [v _TurnOffLights `(i ~T0 @X0 0 ef ]
 "32 SerialCOM.h
 [v _SerialInit `(v ~T0 @X0 0 ef ]
@@ -3772,20 +3770,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _firstbyte `uc ~T0 @X0 -> 0 `x e ]
 [i _firstbyte
 :U ..
--> -> 35 `ui `uc
+-> -> 79 `ui `uc
 -> -> 38 `ui `uc
--> -> 33 `ui `uc
+-> -> 78 `ui `uc
 -> -> 64 `ui `uc
--> -> 37 `ui `uc
+-> -> 87 `ui `uc
 ..
 ]
-[; ;SerialCOM.h: 19: u8 firstbyte[] = {'#','&','!','@','%'};
+[; ;SerialCOM.h: 19: u8 firstbyte[] = {'O','&','N','@','W'};
 "20
 [v _endbyte `uc ~T0 @X0 1 e ]
 [i _endbyte
--> -> 36 `ui `uc
+-> -> 69 `ui `uc
 ]
-[; ;SerialCOM.h: 20: u8 endbyte = '$';
+[; ;SerialCOM.h: 20: u8 endbyte = 'E';
 "21
 [v _counter `uc ~T0 @X0 1 e ]
 [i _counter
@@ -3825,9 +3823,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "24 Main.c
 [v _MinLightValue `uc ~T0 @X0 1 e ]
 [i _MinLightValue
--> -> 80 `i `uc
+-> -> 40 `i `uc
 ]
-[; ;Main.c: 24: u8 MinLightValue = 80;
+[; ;Main.c: 24: u8 MinLightValue = 40;
 "32
 [v _state `E3751 ~T0 @X0 1 e ]
 [i _state
@@ -3996,9 +3994,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 472 ]
 [; ;Main.c: 94: }
-[; ;Main.c: 95: if(RCREG==0x24)
+[; ;Main.c: 95: if(RCREG=='E')
 "95
-[e $ ! == -> _RCREG `i -> 36 `i 473  ]
+[e $ ! == -> _RCREG `ui -> 69 `ui 473  ]
 [; ;Main.c: 96: {
 "96
 {
@@ -4084,217 +4082,199 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 124: TimerCounter++;
 "124
 [e ++ _TimerCounter -> -> 1 `i `uc ]
-[; ;Main.c: 125: if (TimerCounter==1) TXREG='%';
-"125
-[e $ ! == -> _TimerCounter `i -> 1 `i 480  ]
-[e = _TXREG -> -> 37 `ui `uc ]
-[e :U 480 ]
-[; ;Main.c: 126: if (TimerCounter==2) TXREG='F';
-"126
-[e $ ! == -> _TimerCounter `i -> 2 `i 481  ]
-[e = _TXREG -> -> 70 `ui `uc ]
-[e :U 481 ]
-[; ;Main.c: 127: if (TimerCounter==3) TXREG='$';
-"127
-[e $ ! == -> _TimerCounter `i -> 3 `i 482  ]
-[e = _TXREG -> -> 36 `ui `uc ]
-[e :U 482 ]
-[; ;Main.c: 129: if (TimerUser!=0)TimerUser--;
-"129
-[e $ ! != -> _TimerUser `i -> 0 `i 483  ]
+[; ;Main.c: 133: if (TimerUser!=0)TimerUser--;
+"133
+[e $ ! != -> _TimerUser `i -> 0 `i 480  ]
 [e -- _TimerUser -> -> 1 `i `uc ]
-[e :U 483 ]
-[; ;Main.c: 130: if (TimerCounter==3){
-"130
-[e $ ! == -> _TimerCounter `i -> 3 `i 484  ]
-{
-[; ;Main.c: 131: TimerCounter=0;
-"131
-[e = _TimerCounter -> -> 0 `i `uc ]
-[; ;Main.c: 132: actualtime++;
-"132
-[e ++ _actualtime -> -> 1 `i `us ]
-[; ;Main.c: 134: ADCON0bits.GO=1;
+[e :U 480 ]
+[; ;Main.c: 134: if (TimerCounter==3){
 "134
-[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;Main.c: 136: DHT_StateMachine[_FirstStateRequest]();
-"136
-[e ( *U *U + &U _DHT_StateMachine * -> . `E3751 1 `ux -> -> # *U &U _DHT_StateMachine `ui `ux ..  ]
-[; ;Main.c: 137: if (actualtime==totaldaytime) {
-"137
-[e $ ! == -> _actualtime `ui -> _totaldaytime `ui 485  ]
+[e $ ! == -> _TimerCounter `i -> 3 `i 481  ]
 {
-[; ;Main.c: 139: actualtime=0;
-"139
-[e = _actualtime -> -> 0 `i `us ]
-[; ;Main.c: 140: lightcounter=0;
-"140
-[e = _lightcounter -> -> 0 `i `us ]
-[; ;Main.c: 142: timetostartlight=totaldaytime-lightperday;
-"142
-[e = _timetostartlight -> - -> _totaldaytime `ui -> _lightperday `ui `us ]
+[; ;Main.c: 135: TimerCounter=0;
+"135
+[e = _TimerCounter -> -> 0 `i `uc ]
+[; ;Main.c: 136: actualtime++;
+"136
+[e ++ _actualtime -> -> 1 `i `us ]
+[; ;Main.c: 138: ADCON0bits.GO=1;
+"138
+[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
+[; ;Main.c: 141: if (actualtime==totaldaytime) {
+"141
+[e $ ! == -> _actualtime `ui -> _totaldaytime `ui 482  ]
+{
+[; ;Main.c: 143: actualtime=0;
 "143
-}
-[e :U 485 ]
+[e = _actualtime -> -> 0 `i `us ]
+[; ;Main.c: 144: lightcounter=0;
 "144
-}
-[e :U 484 ]
-[; ;Main.c: 143: }
-[; ;Main.c: 144: }
-[; ;Main.c: 145: TMR0ON = 0;
-"145
-[e = _TMR0ON -> -> 0 `i `b ]
-[; ;Main.c: 146: TMR0_WRITE_HIGH(0xB);
+[e = _lightcounter -> -> 0 `i `us ]
+[; ;Main.c: 146: timetostartlight=totaldaytime-lightperday;
 "146
-[e ( _TMR0_WRITE_HIGH (1 -> -> 11 `i `uc ]
-[; ;Main.c: 147: TMR0_WRITE_LOW(0xD0);
+[e = _timetostartlight -> - -> _totaldaytime `ui -> _lightperday `ui `us ]
 "147
-[e ( _TMR0_WRITE_LOW (1 -> -> 208 `i `uc ]
-[; ;Main.c: 148: TMR0ON = 1;
+}
+[e :U 482 ]
 "148
-[e = _TMR0ON -> -> 1 `i `b ]
+}
+[e :U 481 ]
+[; ;Main.c: 147: }
+[; ;Main.c: 148: }
+[; ;Main.c: 149: TMR0ON = 0;
 "149
+[e = _TMR0ON -> -> 0 `i `b ]
+[; ;Main.c: 150: TMR0_WRITE_HIGH(0xB);
+"150
+[e ( _TMR0_WRITE_HIGH (1 -> -> 11 `i `uc ]
+[; ;Main.c: 151: TMR0_WRITE_LOW(0xD0);
+"151
+[e ( _TMR0_WRITE_LOW (1 -> -> 208 `i `uc ]
+[; ;Main.c: 152: TMR0ON = 1;
+"152
+[e = _TMR0ON -> -> 1 `i `b ]
+"153
 }
 [e :U 479 ]
-[; ;Main.c: 149: }
-[; ;Main.c: 152: if (CCP1IF){
-"152
-[e $ ! _CCP1IF 486  ]
-{
-[; ;Main.c: 153: CCP1IF=0;
-"153
-[e = _CCP1IF -> -> 0 `i `b ]
-[; ;Main.c: 154: DHT_StateMachine[state]();
-"154
-[e ( *U *U + &U _DHT_StateMachine * -> _state `ux -> -> # *U &U _DHT_StateMachine `ui `ux ..  ]
-"155
-}
-[e :U 486 ]
-[; ;Main.c: 155: }
-[; ;Main.c: 156: }
+[; ;Main.c: 153: }
+[; ;Main.c: 156: if (CCP1IF){
 "156
+[e $ ! _CCP1IF 483  ]
+{
+[; ;Main.c: 157: CCP1IF=0;
+"157
+[e = _CCP1IF -> -> 0 `i `b ]
+[; ;Main.c: 158: DHT_StateMachine[state]();
+"158
+[e ( *U *U + &U _DHT_StateMachine * -> _state `ux -> -> # *U &U _DHT_StateMachine `ui `ux ..  ]
+"159
+}
+[e :U 483 ]
+[; ;Main.c: 159: }
+[; ;Main.c: 160: }
+"160
 [e :UE 467 ]
 }
-"159
+"163
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;Main.c: 159: void main(void) {
+[; ;Main.c: 163: void main(void) {
 [e :U _main ]
 [f ]
-[; ;Main.c: 162: OSCCON=0b01101100;
-"162
-[e = _OSCCON -> -> 108 `i `uc ]
-[; ;Main.c: 163: Interrupt_Init();
-"163
-[e ( _Interrupt_Init ..  ]
-[; ;Main.c: 166: TMR0_INIT();
+[; ;Main.c: 166: OSCCON=0b01101100;
 "166
-[e ( _TMR0_INIT ..  ]
-[; ;Main.c: 167: TMR0ON = 0;
+[e = _OSCCON -> -> 108 `i `uc ]
+[; ;Main.c: 167: Interrupt_Init();
 "167
-[e = _TMR0ON -> -> 0 `i `b ]
-[; ;Main.c: 168: TMR0_WRITE_HIGH(0xB);
-"168
-[e ( _TMR0_WRITE_HIGH (1 -> -> 11 `i `uc ]
-[; ;Main.c: 169: TMR0_WRITE_LOW(0xD0);
-"169
-[e ( _TMR0_WRITE_LOW (1 -> -> 208 `i `uc ]
-[; ;Main.c: 170: TMR0ON = 1;
+[e ( _Interrupt_Init ..  ]
+[; ;Main.c: 170: TMR0_INIT();
 "170
-[e = _TMR0ON -> -> 1 `i `b ]
-[; ;Main.c: 173: ADCON0=0b00001001;
+[e ( _TMR0_INIT ..  ]
+[; ;Main.c: 171: TMR0ON = 0;
+"171
+[e = _TMR0ON -> -> 0 `i `b ]
+[; ;Main.c: 172: TMR0_WRITE_HIGH(0xB);
+"172
+[e ( _TMR0_WRITE_HIGH (1 -> -> 11 `i `uc ]
+[; ;Main.c: 173: TMR0_WRITE_LOW(0xD0);
 "173
-[e = _ADCON0 -> -> 9 `i `uc ]
-[; ;Main.c: 174: ADCON1=0b00001100;
+[e ( _TMR0_WRITE_LOW (1 -> -> 208 `i `uc ]
+[; ;Main.c: 174: TMR0ON = 1;
 "174
-[e = _ADCON1 -> -> 12 `i `uc ]
-[; ;Main.c: 175: ADCON2bits.ADFM=1;
-"175
-[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
-[; ;Main.c: 178: InitDHT11Driver();
+[e = _TMR0ON -> -> 1 `i `b ]
+[; ;Main.c: 177: ADCON0=0b00001001;
+"177
+[e = _ADCON0 -> -> 9 `i `uc ]
+[; ;Main.c: 178: ADCON1=0b00001100;
 "178
-[e ( _InitDHT11Driver ..  ]
-[; ;Main.c: 181: (TRISAbits.TRISA3 = 0);
-"181
-[e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
-[; ;Main.c: 182: (LATA3=1U);
+[e = _ADCON1 -> -> 12 `i `uc ]
+[; ;Main.c: 179: ADCON2bits.ADFM=1;
+"179
+[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
+[; ;Main.c: 182: InitDHT11Driver();
 "182
-[e = _LATA3 -> -> 1 `ui `b ]
-[; ;Main.c: 184: TurnOffLights();
-"184
-[e ( _TurnOffLights ..  ]
-[; ;Main.c: 185: lightstate=1;
+[e ( _InitDHT11Driver ..  ]
+[; ;Main.c: 185: (TRISAbits.TRISA3 = 0);
 "185
-[e = _lightstate -> -> 1 `i `b ]
-[; ;Main.c: 186: timetostartlight=totaldaytime-lightperday;
+[e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
+[; ;Main.c: 186: (LATA3=1U);
 "186
-[e = _timetostartlight -> - -> _totaldaytime `ui -> _lightperday `ui `us ]
-[; ;Main.c: 189: SerialInit();
-"189
-[e ( _SerialInit ..  ]
-[; ;Main.c: 191: while(1){
-"191
-[e :U 489 ]
-{
-[; ;Main.c: 193: if(TimerUser==0){
-"193
-[e $ ! == -> _TimerUser `i -> 0 `i 491  ]
-{
-[; ;Main.c: 195: if(actualtime>timetostartlight){
-"195
-[e $ ! > -> _actualtime `ui -> _timetostartlight `ui 492  ]
-{
-[; ;Main.c: 196: if(Light_f==0){
-"196
-[e $ ! == -> _Light_f `i -> 0 `i 493  ]
-{
-[; ;Main.c: 197: TurnOffLights();
-"197
+[e = _LATA3 -> -> 1 `ui `b ]
+[; ;Main.c: 188: TurnOffLights();
+"188
 [e ( _TurnOffLights ..  ]
-"198
-}
-[; ;Main.c: 198: }
-[e $U 494  ]
-"199
-[e :U 493 ]
-[; ;Main.c: 199: else if (Light_f==1){
-[e $ ! == -> _Light_f `i -> 1 `i 495  ]
+[; ;Main.c: 189: lightstate=1;
+"189
+[e = _lightstate -> -> 1 `i `b ]
+[; ;Main.c: 190: timetostartlight=totaldaytime-lightperday;
+"190
+[e = _timetostartlight -> - -> _totaldaytime `ui -> _lightperday `ui `us ]
+[; ;Main.c: 193: SerialInit();
+"193
+[e ( _SerialInit ..  ]
+[; ;Main.c: 195: while(1){
+"195
+[e :U 486 ]
 {
-[; ;Main.c: 200: TurnOnLights();
+[; ;Main.c: 197: if(TimerUser==0){
+"197
+[e $ ! == -> _TimerUser `i -> 0 `i 488  ]
+{
+[; ;Main.c: 199: if(actualtime>timetostartlight){
+"199
+[e $ ! > -> _actualtime `ui -> _timetostartlight `ui 489  ]
+{
+[; ;Main.c: 200: if(Light_f==0){
 "200
-[e ( _TurnOnLights ..  ]
+[e $ ! == -> _Light_f `i -> 0 `i 490  ]
+{
+[; ;Main.c: 201: TurnOffLights();
 "201
-}
-[e :U 495 ]
+[e ( _TurnOffLights ..  ]
 "202
-[e :U 494 ]
+}
+[; ;Main.c: 202: }
+[e $U 491  ]
+"203
+[e :U 490 ]
+[; ;Main.c: 203: else if (Light_f==1){
+[e $ ! == -> _Light_f `i -> 1 `i 492  ]
+{
+[; ;Main.c: 204: TurnOnLights();
+"204
+[e ( _TurnOnLights ..  ]
+"205
 }
 [e :U 492 ]
-"204
-}
-[e :U 491 ]
-[; ;Main.c: 201: }
-[; ;Main.c: 202: }
-[; ;Main.c: 204: }
-[; ;Main.c: 205: if(f_frameready){
-"205
-[e $ ! != -> _f_frameready `i -> -> -> 0 `i `uc `i 496  ]
-{
-[; ;Main.c: 206: ReadFrame(RecievedData);
 "206
-[e ( _ReadFrame (1 &U _RecievedData ]
-"207
+[e :U 491 ]
 }
-[e :U 496 ]
+[e :U 489 ]
 "208
 }
 [e :U 488 ]
-"191
-[e $U 489  ]
-[e :U 490 ]
-[; ;Main.c: 207: }
+[; ;Main.c: 205: }
+[; ;Main.c: 206: }
 [; ;Main.c: 208: }
-[; ;Main.c: 210: }
+[; ;Main.c: 209: if(f_frameready){
+"209
+[e $ ! != -> _f_frameready `i -> -> -> 0 `i `uc `i 493  ]
+{
+[; ;Main.c: 210: ReadFrame(RecievedData);
 "210
-[e :UE 487 ]
+[e ( _ReadFrame (1 &U _RecievedData ]
+"211
+}
+[e :U 493 ]
+"212
+}
+[e :U 485 ]
+"195
+[e $U 486  ]
+[e :U 487 ]
+[; ;Main.c: 211: }
+[; ;Main.c: 212: }
+[; ;Main.c: 214: }
+"214
+[e :UE 484 ]
 }
